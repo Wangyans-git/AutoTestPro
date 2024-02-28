@@ -1,0 +1,93 @@
+MCU Recv:   AA 00 
+cmd:        33 
+len:        00 04
+payload:     C4 02 00 00
+chk:        A7 
+uart send: 
+55 F0 08 4D 
+MCU Recv:   AA 00 
+cmd:        F0 
+len:        00 01
+payload:     08
+chk:        A3 
+MCU Recv:   AA 00 
+cmd:        33 
+len:        00 04
+payload:     C5 02 00 00
+chk:        A8 
+iot_test 01 01
+Command not Found
+
+Govee:/$ iot_test 19 00 01
+Command not Found
+
+Govee:/$ iot_test 19 00 02
+Command not Found
+
+Govee:/$ iot_test 19 00 03
+Command not Found
+
+Govee:/$ iot_test 19 00 05
+Command not Found
+
+Govee:/$ MCU Recv:   AA 00 
+cmd:        33 
+len:        00 04
+payload:     C6 02 00 00
+chk:        A9 
+iot_test 01 00
+Command not Found
+
+Govee:/$ iot_test 01 01
+Command not Found
+
+Govee:/$ iot_test 19 00 01
+Command not Found
+
+Govee:/$ ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+iot_test 19 00 02
+Command not Found
+
+Govee:/$ iot_test 19 00 03
+Command not Found
+
+Govee:/$ MCU Recv:   AA 00 
+cmd:        33 
+len:        00 04
+payload:     C7 02 00 00
+chk:        AA 
+iot_test 19 00 05
+Command not Found
+
+Govee:/$ iot_test 01 00
+Command not Found
+
+Govee:/$ iot_test 01 01
+Command not Found
+
+Govee:/$ uart send: 
+55 F0 09 4E 
+MCU Recv:   AA 00 
+cmd:        F0 
+len:        00 01
+payload:     09
+chk:        A4 
+iot_test 19 00 01
+Command not Found
+
+Govee:/$ iot_test 19 00 02
+Command not Found
+
+Govee:/$ MCU Recv:   AA 00 
+cmd:        33 
+len:        00 04
+payload:     C7 02 00 00
+chk:        AA 
+iot_test 19 00 03
+Command not Found
+
+Govee:/$ iot_test 19 00 05
+Command not Found
+
+Govee:/$ iot_test 01 00
+Command not Found

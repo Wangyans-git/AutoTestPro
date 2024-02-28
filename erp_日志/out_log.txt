@@ -1,0 +1,21 @@
+ ------- statistics output -------
+SKU:H71315
+Version:v1.0
+DateAndTime:Fri Nov 17 14:46:32 2023
+LWT:0
+from:{
+    "alexa":0,
+    "android":0,
+    "android status":0,
+    "device":0,
+    "diel rhythm":0,
+    "google":0,
+    "ifttt":0,
+    "iphone":0,
+    "iphone status":0,
+    "linkage":0,
+    "other":1,
+    "poweron":0,
+    "siri":0
+}
+ ------- statistics output -------

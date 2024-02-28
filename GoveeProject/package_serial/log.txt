@@ -1,0 +1,1378 @@
+uart 0x01 0x00
+uart send: 
+55 10 01 00 01 00 67 
+2023-07-17 16:01:59----->关机.
+Govee:/$ MCU Recv: 
+AA 10
+cmd :01 
+len :00 01 
+payload: 00 
+chk:BC
+uart 0x01 0x01
+uart send: 
+55 10 01 00 01 01 68 
+2023-07-17 16:02:00----->开机.
+Govee:/$ MCU Recv: 
+AA 10
+cmd :01 
+len :00 01 
+payload: 01 
+chk:BD
+uart 0xF0 0x00
+uart send: 
+55 10 F0 00 01 00 56 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F D3 
+chk:C4
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0xF0 0x01
+uart send: 
+55 10 F0 00 01 01 57 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0x03
+uart send: 
+55 10 F0 00 01 03 59 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0xfa
+uart send: 
+55 10 F0 00 01 FA 50 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0xfc
+uart send: 
+55 10 F0 00 01 FC 52 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0xff
+uart send: 
+55 10 F0 00 01 FF 55 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0xF1 0x00
+uart send: 
+55 10 F1 00 01 00 57 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:74
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart 0xF1 0x01
+uart send: 
+55 10 F1 00 01 01 58 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:74
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+last will time_stamps: 1689580927137
+uart 0xF1 0x03
+uart send: 
+55 10 F1 00 01 03 5A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:74
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart 0xF1 0xfa
+uart send: 
+55 10 F1 00 01 FA 51 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:74
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+[HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 380
+uart send: 
+55 10 F0 00 01 EE 44 
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 2
+rtl8720cf_app_handle_conn_state_evt conn_id 0 old_state 0 new_state 1, disc_cause 0x0
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 1
+rtl8720cf_app_handle_dev_state_evt init state 1, adv state 0, cause 0x0, (1, 2)
+[rtl8720cf_app_handle_dev_state_evt] BLE ADV stoped:because connection created
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 2
+rtl8720cf_app_handle_conn_state_evt conn_id 0 old_state 1 new_state 2, disc_cause 0x0
+[rtl8720cf_app_handle_conn_state_evt] remote_addr_type 1, conn_interval 0x24, conn_latency 0x0, conn_supervision_timeout 0x1f4
+[rtl8720cf_app_handle_conn_state_evt]BlueTooth connection establishment
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 2
+[rtl8720cf_app_handle_conn_param_update_evt] update pending: conn_id 0
+uart 0xF1 0xfc
+uart send: 
+55 10 F1 00 01 FC 53 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:74
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart send: 
+55 10 17 00 03 01 21 98 39 
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0xa, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0x6, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0xa, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+rtl8720cf_ble_service_cccd_update_cb: index = 3, cccbits 0x1
+uart 0xF0 0xff
+uart send: 
+55 10 F0 00 01 FF 55 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart send: 
+55 10 F4 00 01 00 5A 
+uart 0xF3 0x00
+uart send: 
+55 10 F3 00 01 00 59 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F4 
+len :00 00 
+payload: 
+chk:AE
+uart send: 
+55 10 F4 00 01 01 5B 
+uart 0xF3 0x01
+
+Govee:/$ uart send: 
+55 10 F3 00 01 01 5A 
+uart send: 
+55 10 F3 00 01 01 5A 
+uart 0xF3 0x03
+uart send: 
+55 10 F3 00 01 03 5C 
+
+Govee:/$ uart 0xF3 0xfa
+uart send: 
+55 10 F3 00 01 FA 53 
+
+Govee:/$ uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C9 
+chk:BA
+uart send: 
+55 10 17 00 03 01 21 98 39 
+[HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 380
+uart 0xF3 0xfc
+uart send: 
+55 10 F3 00 01 FC 55 
+
+Govee:/$ uart 0xF3 0xff
+uart send: 
+55 10 F3 00 01 FF 58 
+
+Govee:/$ uart 0x02 0x00
+uart send: 
+55 10 02 00 01 00 68 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 01 
+chk:BE
+uart 0x02 0x01
+uart send: 
+55 10 02 00 01 01 69 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 01 
+chk:BE
+uart 0x02 0x02
+uart send: 
+55 10 02 00 01 02 6A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 02 
+chk:BF
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C9 
+chk:BA
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x02 0x03
+uart send: 
+55 10 02 00 01 03 6B 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 03 
+chk:C0
+uart 0x02 0x04
+uart send: 
+55 10 02 00 01 04 6C 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 04 
+chk:C1
+uart 0x02 0x05
+uart send: 
+55 10 02 00 01 05 6D 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 05 
+chk:C2
+uart 0x02 0xfa
+uart send: 
+55 10 02 00 01 FA 62 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 05 
+chk:C2
+uart send: 
+55 10 F0 00 01 EF 45 
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0x02 0xfc
+uart send: 
+55 10 02 00 01 FC 64 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 05 
+chk:C2
+last will time_stamps: 1689580945141
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F D0 
+chk:C1
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x02 0xff
+uart send: 
+55 10 02 00 01 FF 67 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :02 
+len :00 01 
+payload: 05 
+chk:C2
+uart 0x03 0x00
+uart send: 
+55 10 03 00 01 00 69 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 00 
+chk:BE
+uart 0x03 0x01
+uart send: 
+55 10 03 00 01 01 6A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 01 
+chk:BF
+uart 0x03 0x03
+uart send: 
+55 10 03 00 01 03 6C 
+
+Govee:/$ [HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 380
+MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 01 
+chk:BF
+uart 0x03 0xfa
+uart send: 
+55 10 03 00 01 FA 63 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 01 
+chk:BF
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C9 
+chk:BA
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x03 0xfc
+uart send: 
+55 10 03 00 01 FC 65 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 01 
+chk:BF
+uart 0x03 0xff
+uart send: 
+55 10 03 00 01 FF 68 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :03 
+len :00 01 
+payload: 01 
+chk:BF
+uart 0x04 0x0000
+uart send: 
+55 10 04 00 01 00 6A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :04 
+len :00 02 
+payload: 00 6A 
+chk:2A
+uart send: 
+55 10 F3 00 01 02 5B 
+uart 0x04 0x4001
+uart send: 
+55 10 04 00 01 01 6B 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :04 
+len :00 02 
+payload: 01 6B 
+chk:2C
+uart 0x04 0x45a0
+uart send: 
+55 10 04 00 01 A0 0A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :04 
+len :00 02 
+payload: 05 A0 
+chk:65
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F D0 
+chk:C1
+uart send: 
+55 10 17 00 03 01 21 98 39 
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 2
+rtl8720cf_app_handle_conn_state_evt conn_id 0 old_state 2 new_state 0, disc_cause 0x113
+[rtl8720cf_app_handle_conn_state_evt]Bluetooth Disconnected,start ADV 3600469
+[rtl8720cf_app_handle_conn_state_evt]Bluetooth Disconnected,start ADV over
+uart send: 
+55 10 F3 00 01 02 5B 
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 1
+rtl8720cf_app_handle_dev_state_evt init state 1, adv state 1, cause 0x0, (1, 0)
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 1
+rtl8720cf_app_handle_dev_state_evt init state 1, adv state 2, cause 0x0, (1, 1)
+
+[rtl8720cf_app_handle_dev_state_evt] advertising..3600510
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+uart 0x04 0x45ff
+uart send: 
+55 10 04 00 01 FF 69 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :04 
+len :00 02 
+payload: 45 A0 
+chk:A5
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+uart 0x05 0x00
+uart send: 
+55 10 05 00 01 00 6B 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 00 
+chk:C0
+uart 0x05 0x01
+uart send: 
+55 10 05 00 01 01 6C 
+
+Govee:/$ [HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 380
+MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 01 
+chk:C1
+uart 0x05 0x02
+uart send: 
+55 10 05 00 01 02 6D 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 01 
+chk:C1
+uart send: 
+55 10 F0 00 01 F0 46 
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0x05 0xfa
+uart send: 
+55 10 05 00 01 FA 65 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 01 
+chk:C1
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x05 0xfc
+uart send: 
+55 10 05 00 01 FC 67 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 01 
+chk:C1
+uart 0x05 0xff
+uart send: 
+55 10 05 00 01 FF 6A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :05 
+len :00 01 
+payload: 01 
+chk:C1
+uart 0x07 0x00
+uart send: 
+55 10 07 00 01 00 6D 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 00 
+chk:C2
+MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 00 80 45 A0 05 A0 10 
+chk:F4
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+2023-07-17 16:03:11前的一次执行中有错误！！！ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart 0x07 0x01
+uart send: 
+55 10 07 00 01 01 6E 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 01 
+chk:C3
+MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F CC 03 C0 80 45 A0 05 A0 10 
+chk:B4
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart 0x07 0x02
+uart send: 
+55 10 07 00 01 02 6F 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 01 
+chk:C3
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x07 0xfa
+uart send: 
+55 10 07 00 01 FA 67 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 01 
+chk:C3
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 2
+rtl8720cf_app_handle_conn_state_evt conn_id 0 old_state 0 new_state 1, disc_cause 0x0
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 1
+rtl8720cf_app_handle_dev_state_evt init state 1, adv state 0, cause 0x0, (1, 2)
+[rtl8720cf_app_handle_dev_state_evt] BLE ADV stoped:because connection created
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 2
+rtl8720cf_app_handle_conn_state_evt conn_id 0 old_state 1 new_state 2, disc_cause 0x0
+[rtl8720cf_app_handle_conn_state_evt] remote_addr_type 1, conn_interval 0x24, conn_latency 0x0, conn_supervision_timeout 0x1f4
+[rtl8720cf_app_handle_conn_state_evt]BlueTooth connection establishment
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 2
+[rtl8720cf_app_handle_conn_param_update_evt] update pending: conn_id 0
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0xa, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0x6, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+uart 0x07 0xfc
+uart send: 
+55 10 07 00 01 FC 69 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 01 
+chk:C3
+rtl8720cf_ble_service_cccd_update_cb: index = 3, cccbits 0x1
+last will time_stamps: 1689580967165
+rtl8720cf_app_handle_gap_msg p_gap_msg->subtype: 3
+rtl8720cf_app_handle_conn_param_update_evt status: 0
+[rtl8720cf_app_handle_conn_param_update_evt]  update success:conn_interval 0xa, conn_slave_latency 0x0, conn_supervision_timeout 0x1f4
+uart 0x07 0xff
+uart send: 
+55 10 07 00 01 FF 6C 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :07 
+len :00 01 
+payload: 01 
+chk:C3
+[HAL_Flash_WriteData] flash_addr: 0x1f3000, len: 5328
+uart 0x08 0x00
+uart send: 
+55 10 08 00 01 00 6E 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 00 
+chk:C3
+uart 0x08 0x01
+uart send: 
+55 10 08 00 01 01 6F 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 00 
+chk:C3
+color:0 - 0 - 0 rgb_step:1500-1500-1500
+max_temp:9650 lumi_step:567 target: 0
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C6 
+chk:B7
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x08 0x02
+uart send: 
+55 10 08 00 01 02 70 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 00 
+chk:C3
+uart 0x08 0xfa
+uart send: 
+55 10 08 00 01 FA 68 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 80 
+chk:43
+color:0 - 0 - 0 rgb_step:1500-1500-1500
+max_temp:9650 lumi_step:567 target: 0
+uart 0x08 0xfc
+uart send: 
+55 10 08 00 01 FC 6A 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 80 
+chk:43
+uart 0x08 0xff
+uart send: 
+55 10 08 00 01 FF 6D 
+
+Govee:/$ [HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 380
+MCU Recv: 
+AA 10
+cmd :08 
+len :00 01 
+payload: 80 
+chk:43
+colouart send: r:0 - 0 - 0
+55 10 F0  rgb_step:400 01 F1 47 250-4250-42
+50
+max_temp:9650 lumi_step:1608 target: 0
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0x09 0x00
+uart send: 
+55 10 09 00 01 00 6F 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 00 
+chk:C4
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C6 
+chk:B7
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x09 0x01
+uart send: 
+55 10 09 00 01 01 70 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 01 
+chk:C5
+uart 0x09 0x02
+uart send: 
+55 10 09 00 01 02 71 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 02 
+chk:C6
+[HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 380
+uart 0x09 0x03
+uart send: 
+55 10 09 00 01 03 72 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 03 
+chk:C7
+uart 0x09 0x04
+uart send: 
+55 10 09 00 01 04 73 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 04 
+chk:C8
+MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 33 F4 1F C6 03 C0 80 45 A0 05 9F 10 
+chk:AD
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+uart send: 
+55 10 16 00 00 7B 
+uart 0x09 0x05
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C6 
+chk:B7
+uart send: 
+55 10 09 00 01 05 74 
+MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 04 
+chk:C8
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart 0x09 0xfa
+uart send: 
+55 10 09 00 01 FA 69 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 04 
+chk:C8
+[HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 380
+uart 0x09 0xfc
+uart send: 
+55 10 09 00 01 FC 6B 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 04 
+chk:C8
+uart send: 
+55 10 F3 00 01 00 59 
+uart 0x09 0xff
+
+Govee:/$ uart send: 
+55 10 09 00 01 FF 6E 
+MCU Recv: 
+AA 10
+cmd :09 
+len :00 01 
+payload: 04 
+chk:C8
+uart 0x15 0x0C 0x80
+uart send: 
+55 10 15 00 02 0C 80 08 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 0C 80 
+chk:5D
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C9 
+chk:BA
+uart 0x15 0x0B 0xBB
+
+Govee:/$ uart send: 
+55 10 17 00 03 01 21 98 39 
+uart send: 
+55 10 15 00 02 0B BB 42 
+MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 0B B8 
+chk:94
+uart 0x15 0x0A 0xBC
+uart send: 
+55 10 15 00 02 0A BC 42 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 0A 8C 
+chk:67
+uart 0x15 0x1F 0x40
+uart send: 
+55 10 15 00 02 1F 40 DB 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 1F 40 
+chk:30
+uart 0x15 0x0D 0xEF
+uart send: 
+55 10 15 00 02 0D EF 78 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 0D AC 
+chk:8A
+uart send: 
+55 10 F0 00 01 F2 48 
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0x15 0x21 0x98
+
+Govee:/$ uart send: 
+55 10 15 00 02 21 98 35 
+MCU Recv: 
+AA 10
+cmd :15 
+len :00 02 
+payload: 21 98 
+chk:8A
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart 0x01 0x00
+
+Govee:/$ [HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 380
+uart send: 
+55 10 17 00 03 01 21 98 39 
+uart send: 
+55 10 01 00 01 00 67 
+2023-07-17 16:03:56----->关机.MCU Recv: 
+AA 10
+cmd :01 
+len :00 01 
+payload: 00 
+chk:BC
+uart 0x01 0x01
+uart send: 
+55 10 01 00 01 01 68 
+2023-07-17 16:03:57----->开机.
+Govee:/$ MCU Recv: 
+AA 10
+cmd :01 
+len :00 01 
+payload: 01 
+chk:BD
+uart 0xF0 0x00
+uart send: 
+55 10 F0 00 01 00 56 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+[HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 380
+uart 0xF0 0x01
+uart send: 
+55 10 F0 00 01 01 57 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0x03
+uart send: 
+55 10 F0 00 01 03 59 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F CC 
+chk:BD
+uart 0xF0 0xfa
+
+Govee:/$ uart send: 
+55 10 17 00 03 01 21 98 39 
+uart send: 
+55 10 F0 00 01 FA 50 
+MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF0 0xfc
+uart send: 
+55 10 F0 00 01 FC 52 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+last will time_stamps: 1689580997225
+uart 0xF0 0xff
+uart send: 
+55 10 F0 00 01 FF 55 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F0 
+len :00 01 
+payload: 01 
+chk:AC
+uart 0xF1 0x00
+uart send: 
+55 10 F1 00 01 00 57 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 21 98 1F CC 03 C0 80 05 A0 05 A0 10 
+chk:06
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :5300
+ECO_DEV  :8144
+statu    :0x03
+tar_bak  :4100
+CountDown:1440
+24H Left :1439
+WARN     :10
+===================
+
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8140
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+[HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 380
+uart 0xF1 0x01
+uart send: 
+55 10 F1 00 01 01 58 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 21 98 1F C9 03 C0 80 05 A0 05 A0 10 
+chk:03
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8140
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8137
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+uart send: 
+55 10 16 00 00 7B 
+MCU Recv: 
+AA 10
+cmd :16 
+len :00 02 
+payload: 1F C9 
+chk:BA
+uart 0xF1 0x03
+
+Govee:/$ uart send: 
+55 10 17 00 03 01 21 98 39 
+uart send: 
+55 10 F1 00 01 03 5A 
+MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 21 98 1F C9 03 C0 80 05 A0 05 A0 10 
+chk:03
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8137
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8137
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+uart 0xF1 0xfa
+uart send: 
+55 10 F1 00 01 FA 51 
+
+Govee:/$ MCU Recv: 
+AA 10
+cmd :F2 
+len :00 0F 
+payload: 01 05 04 21 98 1F C9 03 C0 80 05 A0 05 A0 10 
+chk:03
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8137
+statu    :0x03
+tar_bak  :8600
+CountDown:1440
+24H Left :1440
+WARN     :10
+===================
+
+[INFO]:DEV
+===================
+power    :1
+Shift    :5
+Func     :03
+Light    :0
+display  :192
+ECO_TAR  :8600
+ECO_DEV  :8137
+2023-07-17 16:04:23前的一次执行中有错误！！！
