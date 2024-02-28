@@ -19,11 +19,11 @@ import threading
 import random
 
 i = 1
-a = random.randint(1,9)
+a = random.randint(1, 9)
 b = int(input("输入一个数字："))
 print(a)
-while a!=b:
-    if a>b:
+while a != b:
+    if a > b:
         print("你输入的太小了")
         b = int(input("输入一个数字："))
 
