@@ -13,8 +13,7 @@ from get_log import GetLog
 class H7124Test:
     def __init__(self):
         self.device = u2.connect()
-        self.device.app_start('com.govee.home')
-
+        self.device.app_start('com.govee.home',use_monkey=True)
         self.device.implicitly_wait(30)  # 元素等待时间30s
         # self.device.settings['operation_delay'] = (0, 1)  # 每次点击后等待2s
         # 脚本日志
@@ -28,40 +27,40 @@ class H7124Test:
         if self.device(text=self.sku).wait(timeout=5.0):
             self.device(text=self.sku).click_exists(timeout=5.0)
             time.sleep(5)
-            n = 0
+            num = 0
             while True:
                 if self.check_connect():
                     try:
                         # self.logs.info('退出详情页')
-                        if n % 6 == 0:
+                        if num % 6 == 0:
                             self.device(text='自动').click_exists(timeout=5.0)
                             self.get_log.info("低档")
-                            n += 1
+                            num += 1
                             time.sleep(1)
-                        elif n % 6 == 1:
+                        elif num % 6 == 1:
                             self.device(text='低档').click_exists(timeout=5.0)
                             self.get_log.info("低档")
-                            n += 1
+                            num += 1
                             time.sleep(1)
-                        elif n % 6 == 2:
+                        elif num % 6 == 2:
                             self.device(text='中档').click_exists(timeout=5.0)
                             self.get_log.info("中档")
-                            n += 1
+                            num += 1
                             time.sleep(1)
-                        elif n % 6 == 3:
+                        elif num % 6 == 3:
                             self.device(text='高档').click_exists(timeout=5.0)
                             self.get_log.info("高档")
-                            n += 1
+                            num += 1
                             time.sleep(1)
-                        elif n % 6 == 4:
+                        elif num % 6 == 4:
                             self.device(text='睡眠').click_exists(timeout=5.0)
                             self.get_log.info("睡眠")
-                            n += 1
+                            num += 1
                             time.sleep(1)
-                        elif n % 6 == 5:
+                        elif num % 6 == 5:
                             self.device(text='暴风').click_exists(timeout=5.0)
                             self.get_log.info("暴风")
-                            n += 1
+                            num += 1
                             time.sleep(1)
                     except Exception as e:
                         print(e)
@@ -105,6 +104,6 @@ class H7124Test:
 
 if __name__ == '__main__':
     test = H7124Test()
-    n = 1
+    num = 1
     while True:
         test.start_test()

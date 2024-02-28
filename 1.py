@@ -25,6 +25,7 @@ print(a)
 while a != b:
     if a > b:
         print("你输入的太小了")
+        print("666")
         b = int(input("输入一个数字："))
 
     else:
