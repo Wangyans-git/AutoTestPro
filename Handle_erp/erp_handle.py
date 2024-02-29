@@ -109,7 +109,7 @@ class ErpHandle:
             # print("第{}个".format(self.num_all))
             self.device_name = self.devices_list[devices].replace(":", "")  # 格式化文件名
             print("开始抓取{0}".format(self.devices_list[devices]))
-            for i in range(0, 1000):
+            for i in range(0, 10):
                 json_erp = {
                     "device": self.devices_list[devices],
                     "searchType": 12,
@@ -165,7 +165,7 @@ class ErpHandle:
 
             else:
                 print("没日志")
-            time.sleep(5)
+            time.sleep(2)
         # mqtt_split_tool_H7132.Log_Prase_Handle()  # 解析日志
 
         # self.dingdingrobot()
@@ -187,8 +187,8 @@ class ErpHandle:
 
 
 if __name__ == '__main__':
-    sku = 'H7135'
-    aid = "3873253"
+    sku = 'H7131'
+    aid = "360577"
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)
     erp.get_erp(aid, sku)

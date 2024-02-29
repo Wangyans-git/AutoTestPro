@@ -207,7 +207,7 @@ def my_task():
 scheduler = schedule.Scheduler()
 
 # scheduler.every().day.at(random_time).do(my_task)
-scheduler.every().day.at("09:18").do(my_task)
+scheduler.every().day.at("09:20").do(my_task)
 
 n = 0
 # 无限循环，直到任务执行
