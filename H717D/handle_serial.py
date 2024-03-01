@@ -6,10 +6,11 @@
 # @Description : iot test 压测
 
 
-import serial
+import datetime
 import threading
 import time
-import datetime
+
+import serial
 
 from H7124.get_log import GetLog
 
@@ -107,64 +108,51 @@ class SerialAuto(object):
 
     def run_test(self):
         m = 0  # 统计测试次数
+        program.write_date("iHoment_20170201\r")
+        time.sleep(1)
+        program.write_date("log print 0\r")
         while True:
-
             print("========第{}次测试开始========".format(m + 1))
             self.get_log.info("========第{}次测试开始========".format(m + 1))
             for i in range(len(send_list)):
                 program.write_date(send_list[i])  # 写入数据
                 self.get_log.info("输入{0}".format(send_list[i]))
                 print("输入{0}".format(send_list[i]))
-                time.sleep(1)
-            time.sleep(1)
+                time.sleep(2)
             print("========第{}次测试完成========".format(m + 1))
             self.get_log.info("========第{}次测试完成========".format(m + 1))
             # program.date_result(send_list)
             m += 1
-            if m == test_count:
-                print("所有测试完成,一共测试了{}次".format(m))
-                self.get_log.info("所有测试完成,一共测试了{}次".format(m))
-                print("*********出现了{}次错误*********".format(program.date_result(send_list)))
-                self.get_log.error("*********出现了{}次错误*********".format(program.date_result(send_list)))
-                break
+
 
 
 if __name__ == '__main__':
-    program = SerialAuto('com19', 115200, 3)
+    program = SerialAuto('com17', 115200, 3)
 
     # check_dates = ['关机:55 01 00 56', '开机:55 01 01 57']
-    check_list = '开机:55 12 01 00 01 01 6A,风扇1档:55 12 02 00 02 01 01 6D,风扇2档:55 12 02 00 02 01 02 6E,风扇3档:55 12 02 00 02 01 03 6F,自动模式停止:55 12 02 00 02 02 00 6D,自动模式1档:55 12 02 00 02 02 02 6F,自动模式2档:55 12 02 00 02 02 03 70,自动模式3档:55 12 02 00 02 02 04 71,自动模式暴风档:55 12 02 00 02 02 05 72,睡眠:55 12 02 00 02 03 00 6E,暴风:55 12 02 00 02 04 00 6F,夜灯关:55 12 12 00 01 00 7A,夜灯开:55 12 12 00 01 01 7B,延时关闭60min:55 12 04 00 02 00 60 CD,延时关闭0:55 12 04 00 02 00 00 6D,关机:55 12 01 00 01 00 69'
-    check_dates = check_list.split(",")
+    check_list = (
+        '开机:55 15 01 00 01 01 6D,'
+        '小冰:55 15 02 00 01 01 6E,中冰:55 15 02 00 01 02 6F,大冰:55 15 02 00 01 03 70,'
+        '蜂鸣器关:55 15 06 00 01 00 71,蜂鸣器开:55 15 06 00 01 01 72,'
+        '勿扰开:55 15 22 00 01 01 8E,勿扰关:55 15 22 00 01 00 8D,'
+        '预约定时开:55 15 19 00 01 01 85,预约定时关:55 15 19 00 01 00 84,'
+        '关机:55 15 01 00 01 00 6C,'
+        '清洁开:55 15 18 00 01 01 84,清洁关:55 15 18 00 01 00 83'
+    )
+    check_dates = check_list.upper().split(",")
     # print(check_dates)
     # 如果
     if program.err == 0:
-        print("初始化成功...")
-        test_count = int(input("输入需要测试的次数："))  # 测试的次数
-        print("*********开启读取数据*********\r")
+        # test_count = int(input("输入需要测试的次数："))  # 测试的次数
+        print("*********开启输入iot指令*********\r")
         program.thread_recv(check_dates)
         send_list = [
             'iot_test 01 01\r',  # 开机
-            'iot_test 02 01 01\r', 'iot_test 02 01 02\r', 'iot_test 02 01 03\r',  # 风扇档位
-            'iot_test 02 02 00\r',  'iot_test 02 02 02\r', 'iot_test 02 02 03\r',
-            'iot_test 02 02 04\r', 'iot_test 02 02 05\r',  # 自动
-            'iot_test 02 03 00\r', 'iot_test 02 04 00\r',  # 睡眠/暴风
-            # 'iot_test 07 01\r', 'iot_test 07 00\r',  # 指示灯
-            'iot_test 12 00\r', 'iot_test 12 01\r',  # 夜灯
-            'iot_test 04 00 60\r', 'iot_test 04 00 00\r',  # 延时关闭
-            'iot_test 01 00\r'
+            'iot_test 02 01\r', 'iot_test 02 02\r', 'iot_test 02 03\r',  # 冰
+            'iot_test 06 00\r', 'iot_test 06 01\r',  # 蜂鸣器开关
+            'iot_test 22 01\r', 'iot_test 22 00\r',  # 勿扰
+            'iot_test 19 01\r', 'iot_test 19 00\r',  # 预约定时
+            'iot_test 01 00\r',
+            'iot_test 18 01\r', 'iot_test 18 00\r'  # 清洁
         ]  # 关机
         program.run_test()
-        # while True:
-        #
-        #     print("========第{}次测试开始========".format(m + 1))
-        #     for i in range(len(send_list)):
-        #         program.write_date(send_list[i])  # 写入数据
-        #         print("输入",send_list[i])
-        #         time.sleep(1)
-        #     print("========第{}次测试完成========".format(m + 1))
-        #     # program.date_result(send_list)
-        #     m += 1
-        #     if m == test_count:
-        #         print("所有测试完成,一共测试了{}次".format(m))
-        #         print("*********出现了{}次错误*********".format(program.date_result(send_list)))
-        #         break
