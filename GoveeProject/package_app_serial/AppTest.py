@@ -1,7 +1,7 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    : 2022/07/18
-# @Author  : 王衍升
+# @Author  :yansheng.wang 王衍升
 # @File    : AppTest
 # @Description : 被SerialTest调用控制app
 

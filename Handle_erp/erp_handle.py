@@ -1,7 +1,7 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    :
-# @Author  :
+# @Author  :yansheng.wang
 # @File    :
 # @Description : 取暖器接口抓取日志。过滤LWT日志
 import time

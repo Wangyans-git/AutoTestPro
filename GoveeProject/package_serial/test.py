@@ -1,18 +1,17 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    :
-# @Author  :
+# @Author  :yansheng.wang
 # @File    :
 # @Description : 单机压测
-import threading
-import time
-import uiautomator2 as u2
-# from H7142.get_log.get_log import GetLog
-
 import random
-import time
-import schedule
 import subprocess
+import time
+
+import schedule
+import uiautomator2 as u2
+
+# from H7142.get_log.get_log import GetLog
 
 # class H7135Test:
 #     def __init__(self):
@@ -151,29 +150,29 @@ minute = random.randint(15, 25)
 
 # 格式化为时间字符串
 random_time = "{:02d}:{:02d}".format(hour, minute)
+
+
 # print(random_time)
 
 
 def run_test():
     try:
         device = u2.connect_usb()
-        device.shell("input keyevent 26")
+        # device.shell("input keyevent 26")
         time.sleep(3)
         device.app_start('com.alibaba.android.rimet')
         time.sleep(5)
-        # device(resourceId="com.alibaba.android.rimet:id/cb_privacy").click_exists(timeout=10)
-        # device(resourceId="com.alibaba.android.rimet:id/ll_next").click_exists(timeout=10)
-        # device(text="其他方式登录").click_exists(timeout=10)
-        # device(text="密码登录").click_exists(timeout=10)
-        # device(resourceId="com.alibaba.android.rimet:id/et_pwd_input").click_exists(timeout=10)
-        # time.sleep(1)
-        # device(resourceId="com.alibaba.android.rimet:id/et_pwd_input").send_keys("govee123")
-        # device(resourceId="com.alibaba.android.rimet:id/btn_confirm").click_exists(timeout=10)
-        # time.sleep(1)
-        # device(resourceId="com.alibaba.android.rimet:id/et_password").send_keys("govee123")
-        # time.sleep(1)
-        # device(resourceId="com.alibaba.android.rimet:id/cb_privacy").click_exists(timeout=10)
-        # time.sleep(1)
+        device(resourceId="com.alibaba.android.rimet:id/cb_privacy").click_exists(timeout=10)
+        device(resourceId="com.alibaba.android.rimet:id/ll_next").click_exists(timeout=10)
+        device(text="其他方式登录").click_exists(timeout=10)
+        device(text="密码登录").click_exists(timeout=10)
+        device(resourceId="com.alibaba.android.rimet:id/et_pwd_input").click_exists(timeout=10)
+        time.sleep(1)
+        device(resourceId="com.alibaba.android.rimet:id/et_pwd_input").send_keys("govee123")
+        device(resourceId="com.alibaba.android.rimet:id/btn_confirm").click_exists(timeout=10)
+        time.sleep(1)
+        device(resourceId="com.alibaba.android.rimet:id/cb_privacy").click_exists(timeout=10)
+        time.sleep(1)
         time.sleep(120)
         subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.alibaba.android.rimet'])
         time.sleep(3)
@@ -182,20 +181,21 @@ def run_test():
     except Exception as e:
         print(e)
 
+
 def open_servers():
     try:
         device = u2.connect_usb()
-        device.shell("input keyevent 26")
+        # device.shell("input keyevent 26")
         time.sleep(2)
-        device.app_start('com.github.uiautomator')
+        device.app_start('com.govee.home')
         time.sleep(3)
-        device(resourceId="com.github.uiautomator:id/start_uiautomator").click_exists(timeout=10)
-        toast = device.toast.get_message(120.0, 5.0, '未开启服务').encode('utf-8').decode()
-        print("服务：",toast)
+        device(text="设备").click_exists(timeout=10)
+        device(text="自动化").click_exists(timeout=10)
+        print("点击")
         time.sleep(2)
-        device.shell("input keyevent 26")
     except Exception as e:
         print(e)
+
 
 # run_test()
 def my_task():
@@ -213,9 +213,8 @@ n = 0
 # 无限循环，直到任务执行
 while True:
     scheduler.run_pending()
-    # time.sleep(180)
-    # print(n)
-    # if n % 30 == 0:
-    #     open_servers()
-    # n += 1
+    print(n)
+    if n % 10 == 0:
+        open_servers()
+    n += 1
     time.sleep(30)

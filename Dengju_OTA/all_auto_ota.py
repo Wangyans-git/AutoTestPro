@@ -1,7 +1,7 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    : 
-# @Author  : 
+# @Author  :yansheng.wang 
 # @File    : 
 # @Description : 全部灯具OTA测试
 import time

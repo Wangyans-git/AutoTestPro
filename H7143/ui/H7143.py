@@ -1,7 +1,7 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    : 
-# @Author  : 
+# @Author  :yansheng.wang 
 # @File    : 
 # @Description : 随机按键
 import time
