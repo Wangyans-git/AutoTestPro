@@ -173,7 +173,7 @@ def run_test():
         time.sleep(1)
         device(resourceId="com.alibaba.android.rimet:id/cb_privacy").click_exists(timeout=10)
         time.sleep(1)
-        time.sleep(120)
+        time.sleep(90)
         subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.alibaba.android.rimet'])
         time.sleep(3)
         device.shell("input keyevent 26")
@@ -207,7 +207,8 @@ def my_task():
 scheduler = schedule.Scheduler()
 
 # scheduler.every().day.at(random_time).do(my_task)
-scheduler.every().day.at("09:22").do(my_task)
+scheduler.every().day.at("09:18").do(my_task)    # 每天
+# scheduler.every().monday.at("09:18").do(my_task)    # 周一
 
 n = 0
 # 无限循环，直到任务执行

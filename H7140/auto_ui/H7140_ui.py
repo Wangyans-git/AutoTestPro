@@ -12,7 +12,7 @@ from H7142.get_log.get_log import GetLog
 
 class H7140Test:
     def __init__(self):
-        self.device = u2.connect_usb('d5cd8968')
+        self.device = u2.connect_usb()
         self.device.app_start('com.govee.home')
         self.device.implicitly_wait(30)  # 元素等待时间30s
         self.device.settings['operation_delay'] = (0, 1)  # 每次点击后等待2s
@@ -20,7 +20,7 @@ class H7140Test:
         self.get_log = GetLog("C:\wys\AutoTestProjects\H7140_Auto\get_log\H7140_log.log")
         # 获取手机分辨率
         self.width, self.height = self.device.window_size()
-        self.sku = 'H7140'
+        self.sku = 'H7148'
 
     def start_test(self):
         # 判断当前是否需要进入详情页

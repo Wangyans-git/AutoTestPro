@@ -3,18 +3,18 @@
 # @Time    :
 # @Author  :yansheng.wang
 # @File    :
-# @Description : 取暖器接口抓取日志。过滤LWT日志
+# @Description : 取暖器接口抓取日志
 import time
-from pathlib import Path
+# from pathlib import Path
 
 import requests
 import json
 # from Handle_erp.tool.mqtt_split_tool_H7132 import Log_Prase_Handle
 # from Handle_erp.tool import mqtt_split_tool_H7132
 
-FILE = Path(__file__).resolve()
-ROOT = FILE.parents[0]  # YOLOv5 root directory
-log_file = str(Path(ROOT) / "")
+# FILE = Path(__file__).resolve()
+# ROOT = FILE.parents[0]  # YOLOv5 root directory
+# log_file = str(Path(ROOT) / "")
 
 
 # print(log_file)
@@ -51,7 +51,6 @@ class ErpHandle:
         self.num_all = 0
         self.devices_list = []
         self.erp_text_all = ''
-        self.test = ''
 
     def get_device(self, get_aid=None, get_sku=None):
 
@@ -61,34 +60,18 @@ class ErpHandle:
             "pageSize": 100,
             "pageNum": 1
         }
-        json_phone_list = {
-            "accountId": get_aid,
-            "searchType": "4",
-            "pageSize": 100,
-            "pageNum": 1
-        }
-
         if self.formal_test_flag:
             self.response = requests.post(
                 # 正服
                 url='https://pro-appadmin-api.igovee.com/data-analysis/agg/search', headers=self.headers,
                 json=json_device)
             time.sleep(1)
-            self.response_phone_list = requests.post(
-                # 正服
-                url='https://pro-appadmin-api.igovee.com/data-analysis/agg/search', headers=self.headers,
-                json=json_phone_list)
-            time.sleep(1)
         else:
             # 测服
             self.response = requests.post(url='https://dev-appadmin-api.igovee.com/data-analysis/agg/search',
                                           headers=self.headers,
                                           json=json_device)
-            self.response_phone_list = requests.post(url='https://dev-appadmin-api.igovee.com/data-analysis/agg/search',
-                                                     headers=self.headers,
-                                                     json=json_phone_list)
         erp_device_text = json.loads(self.response.text)
-        erp_phone_list = json.loads(self.response_phone_list.text)
         # print(erp_device_text)
         for device_all in erp_device_text['data']['data']['list']:
             # print(device_all)
@@ -97,10 +80,7 @@ class ErpHandle:
             if sku == get_sku:
                 self.devices_list.append(device)
 
-
-
     def get_erp(self, aid=None, sku=None):
-
         self.get_device(aid, sku)
         if not self.devices_list:
             print(f"没有{sku}")
@@ -116,7 +96,6 @@ class ErpHandle:
                     "pageSize": 1000,
                     "pageNum": i + 1
                 }
-
                 if self.formal_test_flag:
                     self.response = requests.post(
                         # 正服
@@ -138,10 +117,10 @@ class ErpHandle:
                     #     pass
                     # else:
                     self.erp_text_all += (str(time_erp) + "\n").replace("'", '"')
-                    self.erp_text_all += '\n'
                     self.erp_text_all += (str(data_erp) + "\n").replace("'", '"').replace(" ", "") \
                         .replace("True", "true").replace('"message":{', '"message":"{') \
                         .replace('},"@timestamp"', '}","@timestamp"')
+                    self.erp_text_all += '\n'
                 if "True" in str(erp_text['data']['data']['hasNext']):
                     print("第{}页".format(i + 1))
                 else:
@@ -162,33 +141,14 @@ class ErpHandle:
                     # print(e)
                     # print("没日志")
                 time.sleep(1)
-
             else:
                 print("没日志")
             time.sleep(2)
-        # mqtt_split_tool_H7132.Log_Prase_Handle()  # 解析日志
-
-        # self.dingdingrobot()
-
-    def dingdingrobot(self):
-        robot_text = {
-            "msgtype": "text",
-            "text": {
-                # "content": self.test
-                "content": "测试"
-            }
-        }
-        requests.post(
-            url='https://oapi.dingtalk.com/robot/send?access_token=6d1b244b17a8360d971c7ba5b043ade76badf951b2f973729e'
-                '8dab31f624db81',
-            headers=self.headers,
-            json=robot_text)
-        time.sleep(1)
 
 
 if __name__ == '__main__':
-    sku = 'H7131'
-    aid = "360577"
+    sku = 'H7133'
+    aid = "8248704"
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)
     erp.get_erp(aid, sku)

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import chardet
 
-SKU = "H7131"
+SKU = "H7130"
 Version = "v1.0"
 
 FILE = Path(__file__).resolve()
@@ -17,7 +17,7 @@ file_path = str(Path(ROOT) / "原始数据")
 # LOG_FILE_NAME = "in_log.txt"
 # DECODE_FILE_NAME = "out_log.txt"
 # 输入用户的时区
-USER_TIMEZONE = -8
+USER_TIMEZONE = 1
 # This website could query the location of timezone all around the world
 # https://www.zeitverschiebung.net/cn/
 # New York City -5
@@ -140,8 +140,6 @@ class Mqtt_Utils:
 
             self.in_file = open(LOG_FILE_NAME, mode='r', encoding=encodingType)
             self.out_file = open(DECODE_FILE_NAME, mode='w', encoding='utf-8')
-
-
         except FileNotFoundError:
             print("create input file " + LOG_FILE_NAME)
             self.in_file = open(LOG_FILE_NAME, mode='w+', encoding='utf-8')
@@ -336,6 +334,20 @@ class Special_BLE:
                 info += "目标华氏{:.2f}转摄氏为{:.2f} ".format(target_temp / 100, (target_temp / 100 - 32) * 5 / 9)
             else:
                 info += "目标摄氏{:.2f} ".format(target_temp / 100)
+
+            if (data[6] & 0x01):
+                info += "范围 "
+            else:
+                info += "单点 "
+
+            heatShift = (data[6] >> 1) & 0x3
+            info += "加热挡位{:d} ".format(heatShift)
+
+            onePointTemper = (data[7] << 8) | data[8]
+            rangeTemperLow = (data[11] << 8) | data[12]
+            rangeTemperHigh = (data[9] << 8) | data[10]
+            info += "单点温度{:.2f} 范围温度{:.2f}-{:.2f}".format(onePointTemper, rangeTemperLow, rangeTemperHigh)
+
         elif (data[2] == 0x01):
             info += "挡位模式 "
             if (data[3] == 0x01):
@@ -570,6 +582,8 @@ def Analyze(utils_s_s):
                     elif (cmd == "0x10"):
                         rst = self.ble_decode.general_sensordata_prase(cmd, base64_data)
                     elif (cmd == "0x26"):
+                        rst = self.ble_decode.general_delayclose_count(cmd, base64_data)
+                    elif (cmd == "0x11"):
                         rst = self.ble_decode.general_delayclose_count(cmd, base64_data)
                     elif (cmd == "0x12"):
                         rst = self.ble_decode.general_timer_count(cmd, base64_data[2])
