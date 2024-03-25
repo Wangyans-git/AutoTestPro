@@ -1,7 +1,7 @@
 #!C:\wys\AutoTestProjects
 # -*- coding: utf-8 -*-
 # @Time    :
-# @Author  :yansheng.wang
+# @Author  :
 # @File    :
 # @Description : 单机压测
 import random
@@ -207,8 +207,8 @@ def my_task():
 scheduler = schedule.Scheduler()
 
 # scheduler.every().day.at(random_time).do(my_task)
-scheduler.every().day.at("09:18").do(my_task)    # 每天
-# scheduler.every().monday.at("09:18").do(my_task)    # 周一
+scheduler.every().day.at("09:25").do(my_task)
+# scheduler.every().monday.at("09:18").do(my_task)
 
 n = 0
 # 无限循环，直到任务执行

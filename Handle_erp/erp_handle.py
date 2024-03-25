@@ -147,8 +147,8 @@ class ErpHandle:
 
 
 if __name__ == '__main__':
-    sku = 'H7133'
-    aid = "8248704"
+    sku = 'H7135'
+    aid = "8632062"
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)
     erp.get_erp(aid, sku)

@@ -51,7 +51,7 @@ class MQTTClient:
             mqtt_data = msg.payload.decode('UTF-8')
             return mqtt_data
         else:
-            print("该灯效没有MQTT消息下发")
+            print("没有MQTT消息下发")
 
 
 if __name__ == '__main__':
@@ -59,5 +59,5 @@ if __name__ == '__main__':
     # 正服
     # r = MQTTClient().mqttclient("GA/760c770c58dffc6523c87e135f0a65d8", formal_or_test)
     # 测服
-    # r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)
-    r = MQTTClient().mqttclient("GD/fc0b1f2ba94a615ef52542aff180556b", formal_or_test)
+    r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)   # 95177
+    # r = MQTTClient().mqttclient("GA/1304696fb15c4a75b20e6c4eb14cb095", formal_or_test)   # 19638

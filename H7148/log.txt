@@ -1,0 +1,1375 @@
+uart send: 
+55 F0 01 46 
+left:0
+rx_data:aa
+left:0
+rx_data:f0
+len:1 
+ left:0
+rx_data:01
+left:0
+rx_data:9b
+MCU Recv:   AA 00 
+cmd:        F0 
+len:        00 01
+payload:     01
+chk:        9C 
+commd:f0,len:1 
+ DBG|2021-3-11 2:44:32|device_cmd_rsp_handle(1932): DEV_CMD_HEART
+DBG|2021-3-11 2:44:32|device_uart_protocol_heartbeat_handle(684): Next Heart ! 
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:01
+left:0
+rx_data:02
+left:0
+rx_data:b3
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     01 02
+chk:        B5 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:32|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:32|govee_key_event_handle(1743): key event : 1 2
+DBG|2021-3-11 2:44:32|govee_key_event_handle(1809): NOT STATE_RUNNING
+DBG|2021-3-11 2:44:32|govee_mode_set(97): mode set 3
+DBG|2021-3-11 2:44:32|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:170
+DBG|2021-3-11 2:44:32|Govee_Uart_Protocol_Updateuart send: NotifyPhone
+55 01 03 (143): noti59 
+fy_phone:170
+DBG|2021-3-11 2:44:32|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:32|govee_led_param_get(1687): mode = 3,delay = 0 0x1
+DBG|2021-3-11 2:44:32|govee_led_param_get(1711): mode = 3,delay = 0 0x9
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :3
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+======ERR|2021-3-11 2:44:32|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+=============
+
+DBG|2021-3-11 2:44:32|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+[rtl8720cf_app_handle_io_msg] update dev status: 1
+uart send: 
+55 02 00 09 60 
+2023-11-15 15:38:09----->三档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:09
+left:0
+rx_data:b5
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 09
+chk:        B7 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:32|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:32|Govee_DevService_NotifyPhone(365): IOT_BLE_MSG_GET_HEAD
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:33|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:33|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:33|govee_uart_protocol_mode_handle(793): Mode:3
+DBG|2021-3-11 2:DBG|2021-3-44:33|_auto_11 2:44:33|mode_start(6_auto_mode_49): auto moprocess(604)de start, r: auto mode un low shifprocess - [1t
+DBG|20][7500]
+21-3-11 2:44DBG|2021-3-1:33|_automo1 2:44:33|_ade_reset_dautomode_getCta(178): reompareData(2set flag+++75): iReal_D+++++++++++ata: [7970] +++++++++++iSetTargetDa+++
+DBG|ta:[7500] 
+2021-3-11 2DBG|2021-3:44:33|Gove-11 2:44:33|e_Uart_Prot_automode_opERR|2021-3-11 2:44:33|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+oenDevCheck(3col_UpdateB18): iComparleDevinfo_HeData:[-470]andle(191):
+DBG|2021 type:5
+-3-11 2:44:3DBG|2021-3-3|_automode_11 2:44:33|openDevCheckGovee_Uart_(416): ArrivProtocol_Upe Target temdateNotifyPper
+DBG|2hone(143): 021-3-11 2:4notify_phone4:33|_autom:5
+DBG|20ode_reset_d21-3-11 2:44ata(178): r:33|govee_uaeset flag++rtservice_ti+++++++++++mer_handle(6+++++++++++37): timer:N++++
+DBGotifyPhone,o|2021-3-11 p:Reset.
+2:44:33|_automode_openDDBG|2021-3-evCheck(453)11 2:44:33|: auto singlgovee_mode_e Close
+Dset(97): moBG|2021-3-11de set 4
+ 2:44:33|govDBG|2021-3-ee_mode_set11 2:44:33|g(97): mode ovee_uartserset 0
+vice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:33|govee_led_param_get(1687): mode = 4,delay = 0 0x1
+DBG|2021-3-11 2:44:33|govee_led_param_get(1711): mode = 4,delay = 0 0x11
+[INFO]:DEV
+===================
+power     :1
+mode      :3
+shift     :4
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 11 68 
+2023-11-15 15:38:10----->自动档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:11
+left:0
+rx_data:bd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 11
+chk:        BF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:33|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:33|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:33|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:33|govee_uart_protocol_mode_handle(793): Mode:9
+DBG|2021-3-11 2:44:33|_auto_mode_stop(670): auto mode stop
+DBG|2021-3-11 2:44:33|_automode_reset_data(178): reset flag++++++++++++++++++++++++++++
+DBG|2021-3-11 2:44:33|Govee_UserConfig_NeedSave(586): User Handle,Saved ...
+
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:33|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:33|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:33|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:33|govee_mode_set(97): mode set 5
+DBG|2021-3-11 2:44:33|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:33|govee_led_param_get(1687): mode = 5,delay = 0 0x1
+DBG|2021-3-11 2:44:33|govee_led_param_get(1711): mode = 5,delay = 0 0x21
+[INFO]:DEV
+===================
+power     :1
+mode      :9
+shift     :5
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+left:4
+rx_data:aa
+left:3
+rx_data:05
+luart send: en:2 
+ le
+55 02 0ft:2
+rx_da0 21 78 
+ta:0a
+left:1
+rx_data:e0
+left:0
+rx_data:99
+MCU Recv:   AA 00 
+cmd:        05 
+len:        00 02
+payload:     0A E0
+chk:        9B 
+commd:05,len:2 
+ DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1942): DEV_CMD_NTC_DATA
+DBG|2021-3-11 2:44:33|device_uart_protocol_mcu_ntc_handle(872): adc is 2784.0
+DBG|2021-3-11 2:44:33|device_uart_protocol_mcu_ntc_handle(889): ### r is 4709.052 temp now: 26.54
+
+left:4
+rx_data:aa
+left:3
+rx_data:02
+len:2 
+ left:2
+rx_data:00
+left:1
+rx_data:21
+left:0
+rx_data:cd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 21
+chk:        CF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:33|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:34|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:34|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:34|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:34|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:34|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:34|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:34|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:34|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:34|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:34|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:34|govee_mode_set(97): mode set 1
+DBG|2021-3-11 2:44:34|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:34|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:34|govee_led_param_get(1687): mode = 1,delay = 0 0x1
+DBG|2021-3-11 2:44:34|govee_led_param_get(1711): mode = 1,delay = 0 0x3
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :1
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:34|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 03 5A 
+2023-11-15 15:38:11----->一档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:03
+left:0
+rx_data:af
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 03
+chk:        B1 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:34|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:34|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+DBG|2021-3-11 2:44:35|Govee_UserConfig_NeedSave(586): User Handle,Saved ...
+
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:35|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:35|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:35|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:35|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:35|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:35|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:35|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:35|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:35|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:35|govee_mode_set(97): mode set 2
+DBG|2021-3-11 2:44:35|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:35|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:35|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+DBG|2021-3-11 2:44:35|govee_led_param_get(1711): mode = 2,delay = 0 0x5
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:35|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 05 5C 
+2023-11-15 15:38:13----->二档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:05
+left:0
+rx_data:b1
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 05
+chk:        B3 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:35|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:35|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:01
+left:0
+rx_data:02
+left:0
+rx_data:b3
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     01 02
+chk:        B5 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:36|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:36|govee_key_event_handle(1743): key event : 1 2
+DBG|2021-3-11 2:44:36|govee_key_event_handle(1809): NOT STATE_RUNNING
+DBG|2021-3-11 2:44:36|Govee_NetDisplay_WifiStatus_Handle(91): Get NetDisPlay_Priority: 0 
+DBG|2021-3-11 2:44:36|Govee_DevCommon_CountDown_Handle(64): set:2,from:3,count_min:0uart send: 
+DBG|2021
+55 03 0-3-11 2:44:35 0A 00 00 6|Govee_DevC00 0A 71 
+ommon_CountDown_Handle(67): Count Down Set:0
+DBG|2021-3-11 2:44:36|Govee_DevCommon_CountDown_Handle(92): GOVEE_UART_CMD
+DBG|2021-3-11 2:44:36|Govee_DevCommon_CountDown_Handle(105): now timestamp:3
+DBG|2021-3-11 2:44:36|govee_mode_set(97): mode set 0
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:170
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateNotifyPhone(143): nERR|2021-3-11 2:44:36|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+otify_phone:170
+DBG|2021-3-11 2:44:36|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:36|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+[INFO]:DEV
+===================
+power     :0
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:36|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+[rtl8720cf_app_handle_io_msg] update dev status: 0
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:25
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateNotifyPhone(143): notifyuart send: 
+55 02 00 01 58 
+2023-11-15 15:38:13----->关机_phone:170
+DBG|2021-3-11 2:44:36|govee_uartservice_timer_handle(63left:0
+rx_data:aa
+7): timer:Noleft:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+tifyPhone,opleft:0
+rx_data:01
+:Reset.
+left:0
+rx_data:ad
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 01
+chk:        AF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:36|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+DBG|2021-3-11 2:44:36|Govee_UserConfig_NeedSave(586): User Handle,Saved ...
+
+ERR|2021-3-11 2:44:36|Govee_DevService_NotifyPhone(365): IOT_BLE_MSG_GET_HEAD
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:01
+left:0
+rx_data:02
+left:0
+rx_data:b3
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     01 02
+chk:        B5 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:36|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:36|govee_key_event_handle(1743): key event : 1 2
+DBG|2021-3-11 2:44:36|govee_key_event_handle(1809): NOT STATE_RUNNING
+DBG|2021-3-11 2:44:36|govee_mode_set(97): mode set 2
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:170
+DBG|2021-3-11 2:44:36|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:170
+DBG|2021-3-11 2:44:36|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:36|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+DBG|2021-3-11 2:44:36|govee_led_param_get(1711): mode = 2,delay = 0 0x5
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+ERR|2021-3-11 2:44:36|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+DBG|2021-3-uart send: 11 2:44:36|
+55 01 02 device_cmd_58 
+rsp_handle(1979): DEV_CMD_LED_ALL
+[rtl8720cf_app_handle_io_msg] update dev status: 1
+uart send: 
+55 02 00 05 5C 
+2023-11-15 15:38:14----->二档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:05
+left:0
+rx_data:b1
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 05
+chk:        B3 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:37|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:37|Govee_DevService_NotifyPhone(365): IOT_BLE_MSG_GET_HEAD
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:37|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:37|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:37|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:37|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:37|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:37|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:37|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:37|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:37|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:37|govee_mode_set(97): mode set 3
+DBG|2021-3-11 2:44:37|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:37|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:37|govee_led_param_get(1687): mode = 3,delay = 0 0x1
+DBG|2021-3-11 2:44:37|govee_led_param_get(1711): mode = 3,delay = 0 0x9
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :3
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:37|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 09 60 
+2023-11-15 15:38:14----->三档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:09
+left:0
+rx_data:b5
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 09
+chk:        B7 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:37|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:37|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:38|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:38|govee_uart_protocol_mode_handle(793): Mode:3
+DBG|2021-3-11 2:44:38|_auto_mode_start(649): auto mode start, run low shift
+DBG|2021-3-11 2:44:38|_automode_reset_data(178): reset flag++++++++++++++++++++++++++++
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:ResERR|2021-3-11 2:44:38|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+et.
+DBG|2021-3-11 2:44:38|govee_mode_set(97): mode set 4
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:38|govee_led_param_get(1687): mode = 4,delay = 0 0x1
+DBG|2021-3-11 2:44:38|govee_led_param_get(1711): mode = 4,delay = 0 0x11
+[INFO]:DEV
+===================
+power     :1
+mode      :3
+shift     :4
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 11 68 
+2023-11-15 15:38:15----->自动档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:11
+left:0
+rx_data:bd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 11
+chk:        BF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:38|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:38|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:38|Govee_Uar[HAL_Flash_WriteData] flash_addr: 0x1f7000, len: 352
+DBG|2021-3-11 2:44:38|_user_config_save(140): CONFIG update md5: bd1ba9118e54eb1ec536638b3f60b516
+
+t_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:38|govee_uart_protocol_mode_handle(793): Mode:9
+DBG|2021-3-11 2:44:38|_auto_mode_stop(ERR|2021-3-11 2:44:38|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+670): auto mode stop
+DBG|2021-3-11 2:44:38|_automode_reset_data(178): reset flag++++++++++++++++++++++++++++
+ERR|2021-3-11 2:44:38|Govee_Hater_EcoMode_Energy_Record(543): shift error 255
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:38|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:38|govee_mode_set(97): mode set 5
+DBG|2021-3-11 2:44:38|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:38|govee_led_param_get(1687): mode = 5,delay = 0 0x1
+DBG|2021-3-11 2:44:38|govee_led_param_get(1711): mode = 5,delay = 0 0x21
+[INFO]:DEV
+===================
+power     :1
+mode      :9
+shift     :5
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 21 78 
+2023-11-15 15:38:16----->风扇档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:21
+left:0
+rx_data:cd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 21
+chk:        CF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+left:3
+rx_data:aa
+left:3
+rx_data:05
+len:2 
+ left:2
+rx_data:0a
+left:1
+rx_data:e0
+left:0
+rx_data:99
+MCU Recv:   AA 00 
+cmd:        05 
+len:        00 02
+payload:     0A E0
+chk:        9B 
+commd:05,len:2 
+ DBG|2021-3-11 2:44:38|device_cmd_rsp_handle(1942): DEV_CMD_NTC_DATA
+DBG|2021-3-11 2:44:38|device_uart_protocol_mcu_ntc_handle(872): adc is 2784.0
+DBG|2021-3-11 2:44:38|device_uart_protocol_mcu_ntc_handle(889): ### r is 4709.052 temp now: 26.54
+
+ERR|2021-3-11 2:44:39|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:39|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:39|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:39|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:39|govee_mode_set(97): mode set 1
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:39|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:39|govee_led_param_get(1687): mode = 1,delay = 0 0x1
+DBG|2021-3-11 2:44:39|govee_led_param_get(1711): mode = 1,delay = 0 0x3
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :1
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:39|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 03 5A 
+2023-11-15 15:38:16----->一档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:03
+left:0
+rx_data:af
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 03
+chk:        B1 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:39|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:39|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:39|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:39|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:39|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:39|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:39|govee_mode_set(97): mode set 2
+DBG|2021-3-11 2:44:39|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:39|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:39|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+DBG|2021-3-11 2:44:39|govee_led_param_get(1711): mode = 2,delay = 0 0x5
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:39|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 05 5C 
+2023-11-15 15:38:17----->二档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:05
+left:0
+rx_data:b1
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 05
+chk:        B3 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:40|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:40|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:01
+left:0
+rx_data:02
+left:0
+rx_data:b3
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     01 02
+chk:        B5 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:40|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:40|govee_key_event_handle(1743): key event : 1 2
+DBG|2021-3-11 2:44:40|govee_key_event_handle(1809): NOT STATE_RUNNING
+DBG|2021-3-11 2:44:40|Govee_NetDisplay_WifiStatus_Handle(91): Get NetDisPlay_Priority: 0 
+DBG|2021-3-11 2:44:40|Govee_DevCommon_CountDown_Handle(64): set:2,from:3,count_min:0
+DBG|2021-3-11 2:44:40|Govee_DevCommon_CountDown_Handle(67): Count Down Set:0
+DBG|2021-3-11 2:44:40|Govee_DevCommon_CountDown_Handle(92): GOVEE_UART_CMD
+DBG|2021-3-11 2:44:40|Govee_DevCommon_CountDown_Handle(105): now timestamp:3
+DBG|2021-3-11 2:44:40|govee_mode_set(97): mode set 0
+DBG|2021-3-11 2:44:40|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:170
+DBG|2021-3-11 2:44:40|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:170
+DBG|2021-3-11 2:44:40|goveeERR|2021-3-11 2:44:40|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:40|govee_led_param_get(1687): modeuart send:  = 2,delay 
+55 03 05 = 0 0x1
+0A 00 00 00 [INFO]:DEV0A 71 
+
+===================
+power     :0
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:40|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+[rtl8720cf_app_handle_io_msg] update dev status: 0
+uart send: 
+55 02 00 01 58 
+2023-11-15 15:38:18----->关机left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:01
+left:0
+rx_data:ad
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 01
+chk:        AF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:40|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:40|Govee_DevService_NotifyPhone(365): IOT_BLE_MSG_GET_HEAD
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+DBG|2021-3-11 2:44:40|Govee_UserConfig_NeedSave(586): User Handle,Saved ...
+
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:01
+left:0
+rx_data:02
+left:0
+rx_data:b3
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     01 02
+chk:        B5 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:41|govee_key_event_handle(1743): key event : 1 2
+DBG|2021-3-11 2:44:41|govee_key_event_handle(1809): NOT STATE_RUNNING
+DBG|2021-3-11 2:44:41|govee_mode_set(97): mode set 2
+DBG|2021-3-11 2:4uart send: 4:41|Govee_
+55 01 02 Uart_Protoc58 
+ol_UpdateBleDevinfo_Handle(191): type:170
+DBG|2021-3-11 2:44:41|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:170
+DBG|2021-3-11 2:44:41|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:41|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+DBG|2021-3-11 2:44:41|govee_led_param_get(1711): mode = 2,delay = 0 0x5
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdownERR|2021-3-11 2:44:41|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:0
+===================
+
+DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+[rtl8720cf_app_handle_io_msg] update dev status: 1
+uart send: 
+55 02 00 05 5C 
+2023-11-15 15:38:18----->二档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:05
+left:0
+rx_data:b1
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 05
+chk:        B3 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:41|Govee_DevService_NotifyPhone(365): IOT_BLE_MSG_GET_HEAD
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:41|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:41|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:41|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:41|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:41|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:41|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:41|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:41|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:41|govee_mode_set(97): mode set 3
+DBG|2021-3-11 2:44:41|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:41|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:41|govee_led_param_get(1687): mode = 3,delay = 0 0x1
+DBG|2021-3-11 2:44:41|govee_led_param_get(1711): mode = 3,delay = 0 0x9
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :3
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 09 60 
+2023-11-15 15:38:19----->三档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:09
+left:0
+rx_data:b5
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 09
+chk:        B7 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:41|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:42|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:42|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:42|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:42|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:42|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:42|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:42|govee_uart_protocol_mode_handle(793): Mode:3
+DBG|2021-3-11 2:44:42|_auto_mode_start(649): auto mode start, run low shift
+DBG|2021-3-11 2:44:42|_automode_reset_data(178): reset flag++++++++++++++++++++++++++++
+DBG|2021-3-11 2:44:42|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:42|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:42|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:ResERR|2021-3-11 2:44:42|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+et.
+DBG|2021-3-11 2:44:42|govee_mode_set(97): mode set 4
+DBG|2021-3-11 2:44:42|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:42|govee_led_param_get(1687): mode = 4,delay = 0 0x1
+DBG|2021-3-11 2:44:42|govee_led_param_get(1711): mode = 4,delay = 0 0x11
+[INFO]:DEV
+===================
+power     :1
+mode      :3
+shift     :4
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:42|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 11 68 
+2023-11-15 15:38:19----->自动档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:11
+left:0
+rx_data:bd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 11
+chk:        BF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:42|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:42|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+[HAL_Flash_WriteData] flash_addr: 0x1f8000, len: 352
+DBG|2021-3-11 2:44:42|_user_config_save(140): CONFIG update md5: 7417b5ab2585e8740784e1e7522b1363
+
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:43|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:43|govee_uart_protocol_mode_handle(793): Mode:9
+DBG|2021-3-11 2:44:43|_auto_mode_stop(670): auto mode stop
+DBG|2021-3-11 2:44:43|_automode_reset_data(178): reset flag++++++++++++++++++++++++++++
+ERR|2021-3-11 2:44:43|Govee_Hater_EcoMode_Energy_Record(543): shift error 255
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|202ERR|2021-3-11 2:44:43|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+1-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:43|govee_mode_set(97): mode set 5
+DBG|2021-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44:43|govee_led_param_get(1687): mode = 5,delay = 0 0x1
+DBG|2021-3-11 2:44:43|govee_led_param_get(1711): mode = 5,delay = 0 0x21
+[INFO]:DEV
+===================
+power     :1
+mode      :9
+shift     :5
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 21 78 
+2023-11-15 15:38:20----->风扇档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:21
+left:0
+rx_data:cd
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 21
+chk:        CF 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+ERR|2021-3-11 2:44:43|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:43|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:43|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:43|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:43|govee_mode_set(97): mode set 1
+DBG|2021-3-11 2:44:43|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:43|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:43|govee_led_param_get(1687): mode = 1,delay = 0 0x1
+DBG|2021-3-11 2:44:43|govee_led_param_get(1711): mode = 1,delay = 0 0x3
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :1
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 03 5A 
+2023-11-15 15:38:21----->一档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:03
+left:0
+rx_data:af
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 03
+chk:        B1 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+left:1
+rx_data:aa
+left:0
+rx_data:05
+len:2 
+ left:0
+rx_data:0a
+left:0
+rx_data:e1
+left:0
+rx_data:9a
+MCU Recv:   AA 00 
+cmd:        05 
+len:        00 02
+payload:     0A E1
+chk:        9C ERR|2021-3-11 2:44:43|Govee_DevService_NotifyPhone(314): BLE_MSG_TYPE_MODE
+
+commd:05,len:2 
+ DBG|2021-3-11 2:44:43|device_cmd_rsp_handle(1942): DEV_CMD_NTC_DATA
+DBG|2021-3-11 2:44:43|device_uart_protocol_mcu_ntc_handle(872): adc is 2785.0
+DBG|2021-3-11 2:44:43|device_uart_protocol_mcu_ntc_handle(889): ### r is 4703.771 temp now: 26.57
+
+ERROR! ble is not connected, rtl8720cf_gap_conn_state: 0
+left:0
+rx_data:aa
+left:0
+rx_data:06
+len:2 
+ left:0
+rx_data:02
+left:0
+rx_data:02
+left:0
+rx_data:b4
+MCU Recv:   AA 00 
+cmd:        06 
+len:        00 02
+payload:     02 02
+chk:        B6 
+commd:06,len:2 
+ DBG|2021-3-11 2:44:44|device_cmd_rsp_handle(1952): DEV_CMD_KEY_EVENT
+DBG|2021-3-11 2:44:44|govee_key_event_handle(1743): key event : 2 2
+DBG|2021-3-11 2:44:44|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:44|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:44|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:44|govee_uart_protocol_mode_handle(793): Mode:1
+DBG|2021-3-11 2:44:44|Govee_Uart_Protocol_UpdateBleDevinfo_Handle(191): type:5
+DBG|2021-3-11 2:44:44|Govee_Uart_Protocol_UpdateNotifyPhone(143): notify_phone:5
+DBG|2021-3-11 2:44:44|govee_uartservice_timer_handle(637): timer:NotifyPhone,op:Reset.
+DBG|2021-3-11 2:44:44|govee_mode_set(97): mode set 2
+DBG|2021-3-11 2:44:44|govee_uartservice_timer_handle(637): timer:SaveStatus,op:Reset.
+DBG|2021-3-11 2:44ERR|2021-3-11 2:44:44|govee_uart_service_rx_state_timeout_handle(112): Time Out ... !!!
+:44|govee_led_param_get(1687): mode = 2,delay = 0 0x1
+DBG|2021-3-11 2:44:44|govee_led_param_get(1711): mode = 2,delay = 0 0x5
+[INFO]:DEV
+===================
+power     :1
+mode      :1
+shift     :2
+disply on :0
+displysta :1
+childclock:0
+timer_source:0
+appcountdown:0
+===================
+
+DBG|2021-3-11 2:44:44|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL
+uart send: 
+55 02 00 05 5C 
+2023-11-15 15:38:21----->二档left:0
+rx_data:aa
+left:0
+rx_data:02
+len:2 
+ left:0
+rx_data:00
+left:0
+rx_data:05
+left:0
+rx_data:b1
+MCU Recv:   AA 00 
+cmd:        02 
+len:        00 02
+payload:     00 05
+chk:        B3 
+commd:02,len:2 
+ DBG|2021-3-11 2:44:44|device_cmd_rsp_handle(1979): DEV_CMD_LED_ALL

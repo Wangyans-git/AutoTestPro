@@ -17,7 +17,7 @@ file_path = str(Path(ROOT) / "原始数据")
 # LOG_FILE_NAME = "in_log.txt"
 # DECODE_FILE_NAME = "out_log.txt"
 # 输入用户的时区
-USER_TIMEZONE = 1
+USER_TIMEZONE = -8
 # This website could query the location of timezone all around the world
 # https://www.zeitverschiebung.net/cn/
 # New York City -5
