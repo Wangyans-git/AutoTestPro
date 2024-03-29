@@ -4,11 +4,15 @@
 # @Author  :yansheng.wang
 # @File    :
 # @Description : 取暖器接口抓取日志
+import json
 import time
-# from pathlib import Path
 
 import requests
-import json
+
+
+# from pathlib import Path
+
+
 # from Handle_erp.tool.mqtt_split_tool_H7132 import Log_Prase_Handle
 # from Handle_erp.tool import mqtt_split_tool_H7132
 
@@ -80,10 +84,13 @@ class ErpHandle:
             if sku == get_sku:
                 self.devices_list.append(device)
 
-    def get_erp(self, aid=None, sku=None):
-        self.get_device(aid, sku)
-        if not self.devices_list:
-            print(f"没有{sku}")
+    def get_erp(self, aid=None, sku=None, deviceid=None):
+        if deviceid:
+            self.devices_list.append(deviceid)
+        else:
+            self.get_device(aid, sku)
+            if not self.devices_list:
+                print(f"没有{sku}")
         for devices in range(0, len(self.devices_list)):
             self.num_all += 1
             # print("第{}个".format(self.num_all))
@@ -104,9 +111,10 @@ class ErpHandle:
 
                 else:
                     # 测服
-                    self.response = requests.post(url='https://dev-appadmin-api.igovee.com/data-analysis/agg/search',
-                                                  headers=self.headers,
-                                                  json=json_erp)
+                    self.response = requests.post(
+                        url='https://dev-appadmin-api.igovee.com/data-analysis/agg/search',
+                        headers=self.headers,
+                        json=json_erp)
                 erp_text = json.loads(self.response.text)
                 # print(erp_text)
                 for data in erp_text['data']['data']['list']:
@@ -147,9 +155,10 @@ class ErpHandle:
 
 
 if __name__ == '__main__':
-    sku = 'H7135'
-    aid = "8632062"
+    sku = 'H713C'
+    aid = "10114174"
+    deviceid = "20:11:10:91:A8:42:5D:8C"
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)
-    erp.get_erp(aid, sku)
-
+    erp.get_erp(aid, sku, deviceid=None)  # 指定aid
+    # erp.get_erp(aid, sku, deviceid)  # 指定devices

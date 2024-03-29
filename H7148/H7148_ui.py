@@ -5,22 +5,23 @@
 # @File    : 
 # @Description : 单机压测
 import time
+
 import uiautomator2 as u2
 
 from H7148.logs.get_log import GetLog
 
 
-class H7135Test:
+class H7148Test:
     def __init__(self):
         self.device = u2.connect_usb()
         self.device.app_start('com.govee.home')
         self.device.implicitly_wait(30)  # 元素等待时间30s
         self.device.settings['operation_delay'] = (0, 1)  # 每次点击后等待2s
         # 脚本日志
-        self.get_log = GetLog("H7136_log.log")
+        self.get_log = GetLog("H7148_log.log")
         # 获取手机分辨率
         self.width, self.height = self.device.window_size()
-        self.sku = 'H7131'
+        self.sku = 'H7148'
 
     def start_test(self):
         # 判断当前是否需要进入详情页
@@ -33,37 +34,36 @@ class H7135Test:
                     try:
                         # self.logs.info('退出详情页')
                         if n % 5 == 0:
-                            self.device(resourceId='com.govee.home:id/iv_gear_low_icon').click_exists(timeout=5.0)
-                            self.get_log.info("低档")
+                            self.device(resourceId='com.govee.home:id/iv_auto_icon').click_exists(timeout=5.0)
+                            self.get_log.info("自动档")
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
-
                             n += 1
                             time.sleep(1)
                         elif n % 5 == 1:
-                            self.device(resourceId='com.govee.home:id/iv_gear_mid_icon').click_exists(timeout=5.0)
-                            self.get_log.info("中档")
+                            self.device(resourceId='com.govee.home:id/iv_gear_icon').click_exists(timeout=5.0)
+                            self.get_log.info("手动档")
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             n += 1
                             time.sleep(1)
                         elif n % 5 == 2:
-                            self.device(resourceId='com.govee.home:id/iv_gear_high_icon').click_exists(timeout=5.0)
-                            self.get_log.info("高档")
+                            self.device.click(0.175, 0.776)
+                            self.get_log.info("低檔")
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             n += 1
                             time.sleep(1)
                         elif n % 5 == 3:
-                            self.device(resourceId='com.govee.home:id/iv_fan_icon').click_exists(timeout=5.0)
-                            self.get_log.info("风扇档")
+                            self.device.click(0.5, 0.778)
+                            self.get_log.info("中檔")
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             n += 1
                             time.sleep(1)
                         elif n % 5 == 4:
-                            self.device(resourceId='com.govee.home:id/iv_auto_icon').click_exists(timeout=5.0)
-                            self.get_log.info("自动档")
+                            self.device.click(0.832, 0.775)
+                            self.get_log.info("高檔")
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             self.device(resourceId='com.govee.home:id/iv_switch').click_exists(timeout=5.0)
                             n += 1
@@ -142,7 +142,7 @@ class H7135Test:
 
 
 if __name__ == '__main__':
-    test = H7135Test()
+    test = H7148Test()
     n = 1
     while True:
         test.start_test()

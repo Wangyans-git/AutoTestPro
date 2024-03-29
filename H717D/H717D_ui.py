@@ -6,7 +6,7 @@
 # @Description : 单机压测
 import time
 import uiautomator2 as u2
-from get_log import GetLog
+from H717D.logs.get_log import GetLog
 
 
 class H717DTest:

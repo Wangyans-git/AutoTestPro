@@ -3,7 +3,7 @@
 # @Time    : 
 # @Author  :yansheng.wang 
 # @File    : 
-# @Description : 作用
+# @Description : 配网压测
 import subprocess
 import threading
 import time
@@ -14,7 +14,7 @@ import serial
 import serial.tools.list_ports
 import uiautomator2 as u2
 
-from logs import get_log
+from H717D.logs import get_log
 
 
 class H7124_Wifi:
@@ -77,42 +77,40 @@ class H7124_Wifi:
                         self.device(resourceId="com.govee.home:id/sku_des").click_exists(timeout=30)
                         time.sleep(2)
                         self.device(text="继续").click_exists(timeout=10)
-                        if self.device(text='H7124_91EA').exists(timeout=10):
+                        if self.device(text='H7124_92BA').exists(timeout=10):
                             break
                         else:
                             self.device(text='重新扫描').click_exists(timeout=10)
                     # 选择设备  H5086_681B   H5086_67c9
                     while True:
-                        self.device(text='H7124_91EA').click_exists(timeout=10)
+                        self.device(text='H7124_92BA').click_exists(timeout=10)
                         time.sleep(1)
                         if self.device(text='设备Wi-Fi指示灯以白色快闪，请短按设备电源键').exists(timeout=10):
                             break
                         else:
                             if self.device(text="重新连接").exists(timeout=5):
                                 self.device(text="重新连接").click_exists(timeout=5)
-                            if self.device(resourceId='com.govee.home:id/done').exists(timeout=5):
-                                break
                             print("sku点不到了")
                 # 命名设备
                 print("点击配对")
-
-                # 继电器模拟点击配对
-                # if self.device(text='设备Wi-Fi指示灯以白色快闪，请短按设备电源键').exists(timeout=30):
-                #     time.sleep(2)
-                #     try:
-                #         self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
-                #         time.sleep(0.5)
-                #         self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
-                #     except Exception as e:
-                #         print("继电器串口错误：", e)
-
-                if self.device(resourceId='com.govee.home:id/done').exists(timeout=30):
-                    add_device_num += 1
-                    print("配对次数：", add_device_num)
-                    self.get_log.info("配对次数：{}".format(add_device_num))
-                    self.old_time = datetime.now()
-                else:
-                    self.error_handle()
+                if self.device(text='设备Wi-Fi指示灯以白色快闪，请短按设备电源键').exists(timeout=30):
+                    time.sleep(2)
+                    try:    # 继电器模拟点击配对
+                        self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
+                        time.sleep(0.5)
+                        self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
+                    except Exception as e:
+                        print("继电器串口错误：", e)
+                    if self.device(resourceId='com.govee.home:id/done').exists(timeout=10):
+                        add_device_num += 1
+                        print("配对次数：", add_device_num)
+                        self.get_log.info("配对次数：{}".format(add_device_num))
+                        self.old_time = datetime.now()
+                    else:
+                        subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.govee.home'])
+                        time.sleep(2)
+                        self.device.app_start('com.govee.home')
+                        continue
                 if self.device(resourceId='com.govee.home:id/done').exists(timeout=30):
                     self.device(resourceId="com.govee.home:id/sensor_name_edit").click_exists(timeout=10)
                     self.device(resourceId="com.govee.home:id/sensor_name_edit").send_keys(self.sku)
@@ -151,18 +149,7 @@ class H7124_Wifi:
                             break
                         else:
                             self.error_handle()
-                else:
-                    while True:
-                        print("跳过")
-                        self.device(resourceId='com.govee.home:id/skip').click_exists(timeout=10)
-                        if self.device(resourceId="com.govee.home:id/btn_done").exists(timeout=10):
-                            self.device(resourceId="com.govee.home:id/btn_done").click_exists(timeout=10)
-                        if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=30):
-                            break
-                        else:
-                            self.error_handle()
 
-                # 绑定完成
                 if self.device(resourceId='com.govee.home:id/iv_switch').exists(timeout=30):
                     add_success_num += 1
                     print("配对配网成功次数：", add_success_num)
@@ -174,6 +161,15 @@ class H7124_Wifi:
                 self.del_device()
             except Exception as e:
                 print("绑定出错：",e)
+                print("出现异常，重启app")
+                subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.govee.home'])
+                time.sleep(2)
+                self.device.app_start('com.govee.home')
+                if self.device(text=self.sku).exists(timeout=10):
+                    self.device(text=self.sku).click_exists(timeout=10)
+                    self.del_device()
+                else:
+                    pass
 
     def down(self):
         self.device.swipe(0.5 * self.width, 0.9 * self.height, 0.5 * self.width,
@@ -186,19 +182,20 @@ class H7124_Wifi:
         time.sleep(2)
 
     def error_handle(self):
-        while True:
-            self.get_log.error("出现异常，重启app")
-            print("出现异常，重启app")
-            subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.govee.home'])
-            time.sleep(2)
-            self.device.app_start('com.govee.home')
-            if self.device(text=self.sku).exists(timeout=20):
-                self.device(text=self.sku).click_exists(timeout=10)
-                if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=30):
-                    break
-            else:
-                break
-
+        if self.device(resourceId="com.govee.home:id/iv_switch").wait(timeout=10.0):
+            return True
+        else:
+            self.get_log.error('10秒wifi还没连接上，设备详情页加载失败')
+            # 退出详情页
+            try:
+                self.device(resourceId="com.govee.home:id/ivBack").click_exists(timeout=10.0)
+                print("退出详情页")
+                self.up()
+                self.device(text=self.sku).click_exists(timeout=10.0)
+                # self.logs.info('退出详情页')
+            except Exception as e:
+                print("错误",e)
+            return False
 
     """ 删除设备 """
     def del_device(self):
@@ -211,10 +208,8 @@ class H7124_Wifi:
             time.sleep(2)
             while True:
                 self.down()
-                self.device(resourceId="com.govee.home:id/tv4BtnDelete").click_exists(timeout=10)
+                self.device(text="删除设备").click_exists(timeout=10)
                 time.sleep(2)
-                # if self.device(resourceId="com.govee.home:id/tvComfirm").exists(timeout=10):  # 错误
-                #     self.device(resourceId="com.govee.home:id/tvComfirm").click_exists(timeout=10)
                 print("删除")
                 if self.device(resourceId="com.govee.home:id/btn_done").exists(timeout=10):
                     time.sleep(2)

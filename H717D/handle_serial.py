@@ -12,7 +12,7 @@ import time
 
 import serial
 
-from H7124.get_log import GetLog
+from H717D.logs.get_log import GetLog
 
 
 class SerialAuto(object):
