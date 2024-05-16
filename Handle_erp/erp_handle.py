@@ -10,6 +10,31 @@ import time
 import requests
 
 
+# /***
+#  *      ┌─┐       ┌─┐
+#  *   ┌──┘ ┴───────┘ ┴──┐
+#  *   │                 │
+#  *   │       ───       │
+#  *   │  ─┬┘       └┬─  │
+#  *   │                 │
+#  *   │       ─┴─       │
+#  *   │                 │
+#  *   └───┐         ┌───┘
+#  *       │         │
+#  *       │         │
+#  *       │         │
+#  *       │         └──────────────┐
+#  *       │                        │
+#  *       │                        ├─┐
+#  *       │                        ┌─┘
+#  *       │                        │
+#  *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+#  *         │ ─┤ ─┤       │ ─┤ ─┤
+#  *         └──┴──┘       └──┴──┘
+#  *                神兽保佑
+#  *               代码无BUG!
+#  */
+
 # from pathlib import Path
 
 
@@ -85,8 +110,10 @@ class ErpHandle:
                 self.devices_list.append(device)
 
     def get_erp(self, aid=None, sku=None, deviceid=None):
+        # print(deviceid)
         if deviceid:
-            self.devices_list.append(deviceid)
+            for i in deviceid:
+                self.devices_list.append(i)
         else:
             self.get_device(aid, sku)
             if not self.devices_list:
@@ -141,9 +168,10 @@ class ErpHandle:
                     with open(f"原始数据\\{self.data_erp_sku}_{aid}_{self.device_name}.txt", "w") as file:
                         # with open(f"原始数据\\{self.data_erp_sku}_{self.device_name}.txt", "w") as file:
                         file.write(self.erp_text_all)
-                    # self.num += 1
-                    # print(f"已爬{0}".format(self.num))
+                    self.num += 1
+                    print("第{0}个".format(self.num))
                 except Exception as e:
+                    print(e)
                     pass
 
                     # print(e)
@@ -151,13 +179,14 @@ class ErpHandle:
                 time.sleep(1)
             else:
                 print("没日志")
+            self.erp_text_all = ''
             time.sleep(2)
 
 
 if __name__ == '__main__':
-    sku = 'H713C'
-    aid = "10114174"
-    deviceid = "20:11:10:91:A8:42:5D:8C"
+    sku = 'H7131'
+    aid = "10333283 "
+    deviceid = [""]
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)
     erp.get_erp(aid, sku, deviceid=None)  # 指定aid

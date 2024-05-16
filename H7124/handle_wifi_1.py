@@ -8,14 +8,13 @@
 import subprocess
 import threading
 import time
-from datetime import datetime
-from pathlib import Path
-
 import serial
 import serial.tools.list_ports
 import uiautomator2 as u2
 
 from logs import get_log
+from datetime import datetime
+from pathlib import Path
 
 
 class DistributionNetworkTest:
@@ -29,8 +28,8 @@ class DistributionNetworkTest:
         # 脚本日志
         FILE = Path(__file__).resolve()
         ROOT = FILE.parents[1]  # YOLOv5 root directory
-        path = str(Path(ROOT) / f"H7124/logs/{sku}wifi配网压测.txt")
-        self.serial_path = str(Path(ROOT) / f"H7124/logs/{datetime.now().strftime('%Y%m%d_%H%M%S')}{sku}串口log.txt")
+        path = str(Path(ROOT) / f"Handle_Wifi/logs/{sku}wifi配网压测.txt")
+        self.serial_path = str(Path(ROOT) / f"Handle_Wifi/logs/{sku}串口log.txt")
         print(path)
         self.get_log = get_log.GetLog(path)
         # 获取手机分辨率
@@ -81,7 +80,7 @@ class DistributionNetworkTest:
                     while True:
                         self.device(text=self.sku_des).click_exists(timeout=10)
                         time.sleep(1)
-                        if self.device(text='配对').exists(timeout=10):
+                        if self.device(text='设备Wi-Fi指示灯以白色快闪，请短按设备电源键').exists(timeout=10):
                             break
                         else:
                             if self.device(text="重新连接").exists(timeout=5):
@@ -93,14 +92,14 @@ class DistributionNetworkTest:
                 print("点击配对")
 
                 # 继电器模拟点击配对
-                if self.device(text='配对').exists(timeout=30):
-                    time.sleep(2)
-                    try:
-                        self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
-                        time.sleep(0.5)
-                        self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
-                    except Exception as e:
-                        print("继电器串口错误：", e)
+                # if self.device(text='设备Wi-Fi指示灯以白色快闪，请短按设备电源键').exists(timeout=30):
+                #     time.sleep(2)
+                #     try:
+                #         self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
+                #         time.sleep(0.5)
+                #         self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
+                #     except Exception as e:
+                #         print("继电器串口错误：", e)
 
                 if self.device(resourceId='com.govee.home:id/done').exists(timeout=30):
                     add_device_num += 1
@@ -116,13 +115,13 @@ class DistributionNetworkTest:
                     self.device(resourceId="com.govee.home:id/done").click_exists(timeout=10)
 
                 # wifi配置
-                if self.device(text='ASUS_F0_2G').exists(timeout=10):
+                if self.device(text='ASUS_F0_2G').exists(timeout=5):
                     self.device(resourceId="com.govee.home:id/et_pwd").clear_text()
                     self.device(resourceId="com.govee.home:id/et_pwd").send_keys("20170201")
                     while True:
                         print("配网")
                         self.device(resourceId="com.govee.home:id/send_wifi").click_exists(timeout=10)
-                        if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=60):
+                        if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=120):
                             break
                         else:
                             print("配网时出错")
@@ -154,6 +153,7 @@ class DistributionNetworkTest:
                     self.get_log.info("配对时长：{}".format(now_time))
                 self.del_device()
             except Exception as e:
+                print("绑定出错：", e)
                 print("绑定出错：", e)
                 subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.govee.home'])
                 time.sleep(2)
@@ -191,28 +191,28 @@ class DistributionNetworkTest:
 
     def del_device(self):
         # 设置
-        if self.device(resourceId="com.govee.home:id/ivRightMost").exists(timeout=5):
+        if self.device(resourceId="com.govee.home:id/ivRightMost").exists(timeout=10):
             print("删除设备")
             self.device(resourceId="com.govee.home:id/ivRightMost").click_exists(timeout=10)
-        elif self.device(resourceId="com.govee.home:id/btn_setting").exists(timeout=5):
-            print("删除设备")
-            self.device(resourceId="com.govee.home:id/btn_setting").click_exists(timeout=10)
-        time.sleep(2)
-        self.down()
-        time.sleep(2)
-        while True:
+            time.sleep(2)
             self.down()
-            if self.device(text="删除设备").exists(timeout=10):
-                self.device(text="删除设备").click_exists(timeout=10)
-            print("删除")
-            if self.device(text="是").exists(timeout=10):
-                self.device(text="是").click_exists(timeout=10)
-                if self.device(resourceId="com.govee.home:id/ivDevAdd").exists(timeout=10):
+            time.sleep(2)
+            while True:
+                self.down()
+                if self.device(resourceId="com.govee.home:id/tv4BtnDelete").exists(timeout=10):
+                    self.device(resourceId="com.govee.home:id/tv4BtnDelete").click_exists(timeout=10)
+                print("删除")
+                if self.device(resourceId="com.govee.home:id/btn_done").exists(timeout=10):
+                    self.device(resourceId="com.govee.home:id/btn_done").click_exists(timeout=10)
+                    if self.device(resourceId="com.govee.home:id/ivDevAdd").exists(timeout=10):
+                        break
+                if self.device(text=self.sku).exists(timeout=5):
+                    self.device(text=self.sku).click_exists(timeout=5)
+                    self.del_device()
                     break
-            if self.device(text=self.sku).exists(timeout=5):
-                self.device(text=self.sku).click_exists(timeout=5)
-                self.del_device()
-                break
+
+            # if self.device(resourceId="com.govee.home:id/tvComfirm").exists(timeout=10):  # 错误
+            #     self.device(resourceId="com.govee.home:id/tvComfirm").click_exists(timeout=10)
             time.sleep(5)
 
     def thread_watch(self):
@@ -229,8 +229,6 @@ class DistributionNetworkTest:
             # print("复制到粘贴板")
             if self.device(text='知道了').exists():
                 self.device(text='知道了').click_exists(timeout=10)
-            if self.device(text='复制到粘贴板').exists():
-                self.device(text='复制到粘贴板').click_exists(timeout=10)
 
     def wifi_success_or_fail(self):
         date_all = ""
@@ -259,7 +257,7 @@ class DistributionNetworkTest:
 
 
 if __name__ == '__main__':
-    sku_ = "H7112"
-    sku_des_ = "H7112_6562"
-    handle_wifi = DistributionNetworkTest('com3', 'com4', 115200, 9600, 1, sku_, sku_des_)  # com为串口日志，com1为继电器
+    sku_ = "H7124"
+    sku_des_ = "H7124_75FE"
+    handle_wifi = DistributionNetworkTest('com3', 'com7', 115200, 9600, 1, sku_, sku_des_)  # com为串口日志，com1为继电器
     handle_wifi.add_devise_devices()

@@ -20,8 +20,8 @@ from logs import get_log
 
 class DistributionNetworkTest:
     def __init__(self, com, com1, dbs, dbs1, timeout, sku, sku_des):
-        # self.device = u2.connect()
-        self.device = u2.connect()
+        self.device = u2.connect("R5CR20H14AV")
+        # self.device = u2.connect("R5CR20H14AV")
         # self.device = u2.connect('424e4d504c383098')
         self.device.app_start('com.govee.home')
         self.device.implicitly_wait(30)  # 元素等待时间30s
@@ -29,8 +29,9 @@ class DistributionNetworkTest:
         # 脚本日志
         FILE = Path(__file__).resolve()
         ROOT = FILE.parents[1]  # YOLOv5 root directory
-        path = str(Path(ROOT) / f"H7124/logs/{sku}wifi配网压测.txt")
-        self.serial_path = str(Path(ROOT) / f"H7124/logs/{datetime.now().strftime('%Y%m%d_%H%M%S')}{sku}串口log.txt")
+        path = str(Path(ROOT) / f"Handle_Wifi/logs/{sku}wifi配网压测.txt")
+        self.serial_path = str(
+            Path(ROOT) / f"Handle_Wifi/logs/{datetime.now().strftime('%Y%m%d_%H%M%S')}{sku}串口log.txt")
         print(path)
         self.get_log = get_log.GetLog(path)
         # 获取手机分辨率
@@ -40,9 +41,9 @@ class DistributionNetworkTest:
         self.in_page_num = 0
         self.network_success_num = 0
         try:
-            self.ser = serial.Serial(com,
-                                     dbs,
-                                     timeout=timeout)
+            # self.ser = serial.Serial(com,
+            #                          dbs,
+            #                          timeout=timeout)
             self.relay_ser = serial.Serial(com1,  # 继电器
                                            dbs1,
                                            timeout=timeout)
@@ -95,12 +96,12 @@ class DistributionNetworkTest:
                 # 继电器模拟点击配对
                 if self.device(text='配对').exists(timeout=30):
                     time.sleep(2)
-                    try:
-                        self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
-                        time.sleep(0.5)
-                        self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
-                    except Exception as e:
-                        print("继电器串口错误：", e)
+                    # try:
+                    #     self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
+                    #     time.sleep(0.5)
+                    #     self.relay_ser.write(bytes.fromhex('A0 01 00 A1'))
+                    # except Exception as e:
+                    #     print("继电器串口错误：", e)
 
                 if self.device(resourceId='com.govee.home:id/done').exists(timeout=30):
                     add_device_num += 1
@@ -111,14 +112,16 @@ class DistributionNetworkTest:
                     print("配对时出错")
                     self.error_handle()
                 if self.device(resourceId='com.govee.home:id/done').exists(timeout=30):
-                    self.device(resourceId="com.govee.home:id/sensor_name_edit").click_exists(timeout=10)
-                    self.device(resourceId="com.govee.home:id/sensor_name_edit").send_keys(self.sku)
-                    self.device(resourceId="com.govee.home:id/done").click_exists(timeout=10)
-
+                    while True:
+                        self.device(resourceId="com.govee.home:id/sensor_name_edit").click_exists(timeout=10)
+                        self.device(resourceId="com.govee.home:id/sensor_name_edit").send_keys(self.sku)
+                        self.device(resourceId="com.govee.home:id/done").click_exists(timeout=10)
+                        if self.device(text='保存密码').exists(timeout=10):
+                            break
                 # wifi配置
-                if self.device(text='ASUS_F0_2G').exists(timeout=10):
+                if self.device(text='ASUS_F0_2G').exists(timeout=5):
                     self.device(resourceId="com.govee.home:id/et_pwd").clear_text()
-                    self.device(resourceId="com.govee.home:id/et_pwd").send_keys("20170201")
+                    self.device(resourceId="com.govee.home:id/et_pwd").send_keys("govee123")
                     while True:
                         print("配网")
                         self.device(resourceId="com.govee.home:id/send_wifi").click_exists(timeout=10)
@@ -213,7 +216,8 @@ class DistributionNetworkTest:
                 self.device(text=self.sku).click_exists(timeout=5)
                 self.del_device()
                 break
-            time.sleep(5)
+            else:
+                break
 
     def thread_watch(self):
         thread = threading.Thread(target=self.watch)
@@ -223,7 +227,7 @@ class DistributionNetworkTest:
         thread = threading.Thread(target=self.wifi_success_or_fail)
         thread.start()
 
-    # 监控弹窗
+    # 处理弹窗
     def watch(self):
         while True:
             # print("复制到粘贴板")
@@ -232,6 +236,7 @@ class DistributionNetworkTest:
             if self.device(text='复制到粘贴板').exists():
                 self.device(text='复制到粘贴板').click_exists(timeout=10)
 
+    # 串口判断是否配网成功
     def wifi_success_or_fail(self):
         date_all = ""
         while True:
@@ -248,7 +253,6 @@ class DistributionNetworkTest:
                 print(e)
 
     # 记录串口文件
-
     def write_txt(self, log):
         result = str(log)
         try:
@@ -259,7 +263,7 @@ class DistributionNetworkTest:
 
 
 if __name__ == '__main__':
-    sku_ = "H7112"
-    sku_des_ = "H7112_6562"
+    sku_ = "H7148"
+    sku_des_ = "H7148_E4B2"
     handle_wifi = DistributionNetworkTest('com3', 'com4', 115200, 9600, 1, sku_, sku_des_)  # com为串口日志，com1为继电器
     handle_wifi.add_devise_devices()

@@ -1,481 +1,0 @@
-iHoment_2017MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0C
-chk:        DE 
-0201
-Command not Found
-
-Govee:/$ uart send: 
-55 12 14 00 01 01 7D 
-log prinMCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0C
-chk:        DE 
-t 0
-
-Govee:/$ reboot
-Device rebooting ...
-ESP-ROM:esp32c3-api1-20210207
-Build:Feb  7 2021
-rst:0x3 (RTC_SW_SYS_RST),boot:0xc (SPI_FAST_FLASH_BOOT)
-Saved PC:0x403806e6
-SPIWP:0xee
-mode:DIO, clock div:1
-load:0x3fcd5820,len:0x1894
-load:0x403cc710,len:0xb68
-load:0x403ce710,len:0x2f94
-entry 0x403cc710
-[0;32mI (35) boot: ESP-IDF v5.0.1-2-g94f8841f01-dirty 2nd stage bootloader[0m
-[0;32mI (35) boot: compile time 20:35:04[0m
-[0;32mI (35) boot: chip revision: v0.4[0m
-[0;32mI (39) qio_mode: Enabling default flash chip QIO[0m
-[0;32mI (44) boot.esp32c3: SPI Speed      : 80MHz[0m
-[0;32mI (49) boot.esp32c3: SPI Mode       : QIO[0m
-[0;32mI (54) boot.esp32c3: SPI Flash Size : 4MB[0m
-[0;32mI (58) boot: Enabling RNG early entropy source...[0m
-[0;32mI (64) boot: Partition Table:[0m
-[0;32mI (67) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (75) boot:  0 nvs              WiFi data        01 02 0000d000 00010000[0m
-[0;32mI (82) boot:  1 otadata          OTA data         01 00 0001d000 00002000[0m
-[0;32mI (89) boot:  2 phy_init         RF data          01 01 0001f000 00001000[0m
-[0;32mI (97) boot:  3 ota_0            OTA app          00 10 00020000 001d0000[0m
-[0;32mI (104) boot:  4 ota_1            OTA app          00 11 001f0000 001d0000[0m
-[0;32mI (112) boot:  5 user             WiFi data        01 02 003c0000 0000b000[0m
-[0;32mI (119) boot:  6 resverse         WiFi data        01 02 003cb000 00031000[0m
-[0;32mI (127) boot:  7 gid1             WiFi data        01 02 003fc000 00001000[0m
-[0;32mI (135) boot:  8 matter_f         WiFi data        01 02 003fd000 00001000[0m
-[0;32mI (142) boot:  9 matter_d         WiFi data        01 02 003fe000 00001000[0m
-[0;32mI (150) boot: 10 gid2             WiFi data        01 02 003ff000 00001000[0m
-[0;32mI (157) boot: End of partition table[0m
-[0;32mI (162) esp_image: segment 0: paddr=00020020 vaddr=3c120020 size=3cde0h (249312) map[0m
-[0;32mI (204) esp_image: segment 1: paddr=0005ce08 vaddr=3fc8fa00 size=03138h ( 12600) load[0m
-[0;32mI (206) esp_image: segment 2: paddr=0005ff48 vaddr=40380000 size=000d0h (   208) load[0m
-[0;32mI (209) esp_image: segment 3: paddr=00060020 vaddr=42000020 size=114484h (1131652) map[0m
-[0;32mI (370) esp_image: segment 4: paddr=001744ac vaddr=403800d0 size=0f72ch ( 63276) load[0m
-[0;32mI (386) boot: Loaded app from partition at offset 0x20000[0m
-[0;32mI (386) boot: Disabling RNG early entropy source...[0m
-[0;32mI (397) cpu_start: Pro cpu up.[0m
-[0;32mI (406) cpu_start: Pro cpu start user code[0m
-[0;32mI (406) cpu_start: cpu freq: 80000000 Hz[0m
-[0;32mI (406) cpu_start: Application information:[0m
-[0;32mI (409) cpu_start: Project name:     govee[0m
-[0;32mI (414) cpu_start: App version:      1.00.12[0m
-[0;32mI (418) cpu_start: Compile time:     Feb 23 2024 18:56:23[0m
-[0;32mI (425) cpu_start: ELF file SHA256:  9e45a1790659b6f6...[0m
-[0;32mI (431) cpu_start: ESP-IDF:          v5.0.1-2-g94f8841f01-dirty[0m
-[0;32mI (437) cpu_start: Min chip rev:     v0.3[0m
-[0;32mI (442) cpu_start: Max chip rev:     v0.99 [0m
-[0;32mI (447) cpu_start: Chip rev:         v0.4[0m
-[0;32mI (451) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (459) heap_init: At 3FC9C730 len 0003FFE0 (255 KiB): DRAM[0m
-[0;32mI (465) heap_init: At 3FCDC710 len 00002950 (10 KiB): STACK/DRAM[0m
-[0;32mI (472) heap_init: At 50000020 len 00001FE0 (7 KiB): RTCRAM[0m
-[0;32mI (479) spi_flash: detected chip: generic[0m
-[0;33mW (483) spi_flash: Detected flash size > 16 MB, but access beyond 16 MB is not supported for this flash model yet.[0m
-[0;32mI (494) spi_flash: flash io: qio[0m
-[0;32mI (498) sleep: Configure to isolate all GPIO pins in sleep state[0m
-[0;32mI (504) sleep: Enable automatic switching of GPIO sleep configuration[0m
-[0;32mI (511) coexist: coexist rom version 9387209[0m
-[0;32mI (517) cpu_start: Starting scheduler.[0m
-[0;33mW (679) vfs: esp_vfs_register_fd_range is successful for range <59; 64) and VFS ID 3[0m
-[0;32mI (681) pp: pp rom version: 9387209[0m
-[0;32mI (681) net80211: net80211 rom version: 9387209[0m
-I (687) wifi:wifi driver task: 3fca59cc, prio:23, stack:6656, core=0
-[0;32mI (692) system_api: Base MAC address is not set[0m
-[0;32mI (697) system_api: read default base MAC address from EFUSE[0m
-I (706) wifi:wifi firmware version: 96d93d1
-I (707) wifi:wifi certification version: v7.0
-I (711) wifi:config NVS flash: enabled
-I (715) wifi:config nano formating: disabled
-I (719) wifi:Init data frame dynamic rx buffer num: 6
-I (724) wifi:Init management frame dynamic rx buffer num: 6
-I (729) wifi:Init management short buffer num: 32
-I (733) wifi:Init dynamic tx buffer num: 6
-I (737) wifi:Init static tx FG buffer num: 2
-I (741) wifi:Init static rx buffer size: 1600
-I (745) wifi:Init static rx buffer num: 3
-I (749) wifi:Init dynamic rx buffer num: 6
-[0;32mI (753) wifi_init: rx ba win: 6[0m
-[0;32mI (757) wifi_init: tcpip mbox: 16[0m
-[0;32mI (761) wifi_init: udp mbox: 6[0m
-[0;32mI (764) wifi_init: tcp mbox: 10[0m
-[0;32mI (768) wifi_init: tcp tx win: 5744[0m
-Please input password:
-DBG|2021-3-11 2:52:13|Govee_Factory_ReadPassFactory(171): Has  Passed Factory Production[0]
-
-*****read system_data********
-wifi_hard_ver:4.01.00
-wifi_soft_ver:1.00.12
-sub_topic::
-pub_topic:
-:
-build time:Feb 23 2024 18:59:06
-*********************************
-
-*****read device_data <DEBUG> ********
-sku:H7124
-MCU:2024.2.20.DR
-uuid:36:16:54:32:04:E9:91:E8
-Ble_Addr:54:32:04:E9:91:EA
-ble_hard_ver:4.01.00
-ble_soft_ver:1.00.12
-PactCode:1
-PactType:1
-*********************************
-*******************************
-Device Boot Reason: 3 ...
-*******************************
-DBG|2021-3-11 2:52:13|Govee_TahmService_Init(969): TAHMService_Init ... 
-DBG|2021-3-11 2:52:13|Govee_DevAttribute_Init(618): Govee_DevAttribute_Init ... AirPure 
-SKU [H7124]  Len[5]
-sku check success
-DBG|2021-3-11 2:52:13|Update_Matter_MD5(90): string 20202021
-DBG|2021-3-11 2:52:13|Update_Matter_MD5(97): string 1000
-DBG|2021-3-11 2:52:13|Update_Matter_MD5(112): string 3840
-Update_Matter_MD5  MD5: 6b6da9223523efcfa05ba4648df13b99
-DBG|2021-3-11 2:52:13|_auto_mode_init(80): auto mode init
-DBG|2021-3-11 2:52:13|_diy_mode_init(195): diy mode init
-HAL_DeviceUart_Init 
-DBG|2021-3-11 2:52:13|Govee_Uart_Protocol_Addr_Get(298): addr:0x3fc9a324
-DBG|2021-3-11 2:52:13|Govee_UserConfig_SetDev_StatusAddr(1418): ----------------------------------------------
-DBG|2021-3-11 2:52:13|Govee_UserConfig_SetDev_StatusAddr(1419): flash rtc_time: 1615430714
-[INFO]:DEV
-===================
-power       :1
-life        :100
-mode        :2
-shift_data  :3
-auto_data   :2
-dnd_switch  :0
-display_15S :0
-night_light :0
-times_from  :0
-delay_times :0
-op_from     :0
-warn        :0
-===================
-
-[INFO]:WARN
-================
-sensor error    :0
-motor error     :0
-filter life 5% :0
-filter life 0% :0
-===================
-
-DBG|2021-3-11 2:52:13|Govee_UserConfig_SetDev_StatusAddr(1422): ----------------------------i------------------
-DBG|2021-3-11 2:52:13|govee_uartservice_timer_handle(499): timer:HeartBeat,op:Start.
-DBG|2021-3-11 2:52:13|govee_uartservice_timer_handle(499): timer:SaveFrequent,op:Start.
-DBG|2021-3-11 2:52:13|Govee_TahmService_Init(969): TAHMService_Init ... 
-DBG|2021-3-11 2:52:13|IOT_BLE_Init(1760): IOT_BLE_Init
-HAL_BLE_Init 
-esp_ble_app_init 
-[0;32mI (978) BTDM_INIT: BT controller compile version [1b88151][0m
-[0;32mI (984) phy_init: phy_version 1100,a4dd3e5,Jul 14 2023,10:45:47[0m
-[0;32mI (1155) BTDM_INIT: Bluetooth MAC: 54:32:04:e9:91:ea
-[0m
-[0;32mI (1158) ble_app: BLE Host Task Started[0m
-[0;32mI (1162) ble_app: Device Address:54:32:04:e9:91:ea[0m
-
-[BLE peripheral] GAP stack ready
-DBG|2021-3-11 2:52:13|_system_ble_event_handler(1680): event:4096 code:0
-DBG|2021-3-11 2:52:13|_on_ble_event_callback(1515): _on_ble_event_callback event: 0x1000
-[esp_app_set_ex_adv_data] device name:GVH712491EA
-DBG|2021-3-11 2:52:13|handle_stack_ready(131): nret: 0, device_name: GVH712491EA
-DBG|2021-3-11 2:52:13|_gatewayservice_insertTriggerSensorToBle(499): sensor_size = 0
-DBG|2021-3-11 2:52:13|_gatewayservice_addSensorToWL(531): sensor_size = 0
-ext_adv instance: 0
-GAP adv start: 
-DBG|2021-3-11 2:52:13|_system_ble_event_handler(1711): ble event:7
-
-[esp_ext_adv_start] advertising..661
-[bleprph_on_sync]:bluetooth start adv congfig wifi ready.........
-[esp_app_handle_io_msg_cb] update dev factorty flag: 0
-[esp_app_handle_io_msg_cb] update dev status: 0
-ot_testDBG|2021-3-11 2:52:13|timer_service_thread_func(968): rtctime:1615430714
-server 0: 0.0.0.0server 1: ntp.aliyun.comDBG|2021-3-11 2:45:14|Govee_NetDisplay_WifiStatus_Handle(97): Get NetDisPlay_Priority: 0 
-DBG|2021-3-11 2:45:14|device_cmd_rsp_handle(1842): DEV_CMD_CHK_WIFI
-DBG|2021-3-11 2:45:14|_timerservice_controlWifiPowerState(881):uart send: 
-55 12 F3 00 01 03 5E 
- s_wifi_time_ticks 0
-
-DBG|2021-3-11 2:45:14|_timerservice_controlWifiPowerState(912): _timerservice_controlWifiPowerState start 1
-
-set wifi power status :1
-DBG|2021-3-11 2:45:14|Govee_NetDisplay_WifiStatus_Handle(97): Get NetDisPlay_Priority: 0 
-DBG|2021-3-11 2:45:14|device_cmd_rsp_handle(1842): DEV_CMD_CHK_WIFI
-DBG|2021-3- 011 2:45:14|IOT_OTA_Init(274): start
-DBG|2021-3-11 2:45:14|qcloud_osc_init(288): start
-DBG|2021-3-11 2:45:14|IOT_OTA_Init(309): h_ota update_addr: 0x1f0000 max_fm_size: 1900544
-1 01
-password error
-
-Please input password:
-uart send: 
-55 12 F3 00 01 03 5E 
-iot_test 02 01 01
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:15|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 1
-
-DBG|2021-3-11 2:45:15|device_cmd_rsp_handle(1856): DEV_CMD_TEST_FACTORY
-uart send: 
-55 12 F5 00 01 04 61 
-iot_test 02 01 02
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:16|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 2
-
-DBG|2021-3-11 2:45:16|device_cmd_rsp_handle(1821): DEV_CMD_HEART
-uart send: 
-55 12 F0 00 01 00 58 
-iot_test 02 01 03
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:16|device_cmd_rsp_handle(1821): DEV_CMD_HEART
-DBG|2021-3-11 2:45:16|device_uart_protocol_heartbeat_handle(609): First Heart ! 
-MCU Recv:   AA 12 
-cmd:        F0 
-len:        00 01
-payload:     00
-chk:        AD 
-DBG|2021-3-11 2:45:17|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:17|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 3
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:17|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:17|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 12
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0C
-chk:        DE 
-DBG|2021-3-11 2:45:17|device_cmd_rsp_handle(1870): DEV_CMD_MCU_VER
-uart send: 
-55 12 F7 00 01 01 60 
-DBG|2021-3-11 2:45:17|device_cmd_rsp_handle(1870): DEV_CMD_MCU_VER
-DBG|2021-3-11 2:45:17|govee_uartservice_timer_handle(499): timer:NotifyPhone,op:Reset.
-iot_test 02 02uart send: 
-55 12 F7 00 01 02 61 
- 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:17|device_cmd_rsp_handle(1870): DEV_CMD_MCU_VER
-DBG|2021-3-11 2:45:17|device_uart_protocol_mcu_ver_handle(1190): GOVEE_DEVICE_MCU_SOFT_VER : 1.00.08
-MCU Recv:   AA 12 
-cmd:        F7 
-len:        00 04
-payload:     01 01 00 08
-chk:        C1 
-DBG|2021-3-11 2:45:18|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:18|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 4
-
-DBG|2021-3-11 2:45:18|device_cmd_rsp_handle(1870): DEV_CMD_MCU_VER
-DBG|2021-3-11 2:45:18|device_uart_protocol_mcu_ver_handle(1202): GOVEE_DEVICE_MCU_HARD_VER : 1.03.00
-MCU Recv:   AA 12 
-cmd:        F7 
-len:        00 04
-payload:     02 01 03 00
-chk:        BD 
-DBG|2021-3-11 2:45:18|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:18|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 11
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0B
-chk:        DD 
-DBG|2021-3-11 2:45:18|device_cmd_rsp_handle(1828): DEV_CMD_CHK_SEND
-uart send: 
-55 12 F1 00 00 58 
-iot_test 02 02 02
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:18|device_cmd_rsp_handle(1835): DEV_CMD_CHK_REC
-DBG|2021-3-11 2:45:18|device_uart_protocol_update_dev_info_handle(975): update_offset: 0000
-MCU Recv:   AA 12 
-cmd:        F2 
-len:        00 06
-payload:     01 64 5A 00 00 00
-chk:        73 
-DBG|2021-3-11 2:45:19|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:19|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 5
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:19|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:19|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 11
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0B
-chk:        DD 
-iot_test 02 02 03
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:20|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:20|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 6
-
-DBG|2021-3-11 2:45:20|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:20|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 11
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0B
-chk:        DD 
-iot_test 02 02 04
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:21|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:21|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 7
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:21|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:21|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 02 02 05
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:22|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:22|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 8
-
-DBG|2021-3-11 2:45:22|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:22|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 02 03 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:23|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:23|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 9
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:23|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:23|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 02 04 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:24|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:24|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 10
-
-DBG|2021-3-11 2:45:24|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:24|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 12 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:25|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:25|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 11
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:25|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:25|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 12 01
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:26|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:26|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 12
-
-DBG|2021-3-11 2:45:26|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:26|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 10
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 0A
-chk:        DC 
-iot_test 04 00 60
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:27|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:27|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 13
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:27|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:27|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 9
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 09
-chk:        DB 
-iot_test 04 00 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:28|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:28|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 14
-
-DBG|2021-3-11 2:45:28|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:28|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 9
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 09
-chk:        DB 
-iot_test 01 00
-password error
-
-Please input password:
-DBG|2021-3-11 2:45:29|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:29|_timerservice_controlWifiPowerState(881): s_wifi_time_ticks 15
-
-uart send: 
-55 12 14 00 01 01 7D 
-DBG|2021-3-11 2:45:29|device_cmd_rsp_handle(1950): DEV_CMD_AIR_QUALITY
-DBG|2021-3-11 2:45:29|device_uart_protocol_air_quality_handle(1537): pm2_5_index = 9
-MCU Recv:   AA 12 
-cmd:        14 
-len:        00 02
-payload:     00 09
-chk:        DB 

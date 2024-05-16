@@ -5,14 +5,14 @@
 # @File    : 
 # @Description : 小家电开放API
 import json
+import random
 import time
 
-import random
 import requests
 
 
 class ApiTest:
-    def __init__(self,services,sku=None):
+    def __init__(self, services, sku=None):
         self.device = None  # 设备devices
         self.sku = None  # sku
         self.sku_type = None  # 设备功能分类
@@ -21,15 +21,15 @@ class ApiTest:
         self.sku_value_integer = None  # value
         self.services = services
         self.test_sku = sku
-        if self.services =="qa":  # 正服
+        if self.services == "qa":  # 正服
             self.headers = {"Govee-API-Key": "d1eb5e56-a8d1-4f10-bf60-59a8c202c973",
                             "Content-Type": "application/json"}
-            self.response = requests.get(url='https://openapi.api.govee.com/router/api/v1/user/devices', headers=self.headers)
+            self.response = requests.get(url='https://openapi.api.govee.com/router/api/v1/user/devices',
+                                         headers=self.headers)
         else:  # 测服
             self.headers = {"Govee-API-Key": "e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1", "Content-Type": "application/json"}
             self.response = requests.get(
                 url='https://test-openapi.api.govee.com/router/api/v1/user/devices', headers=self.headers)
-
 
     # 查询设备
     def all_device(self):
@@ -40,28 +40,28 @@ class ApiTest:
         sku_count = str_data.count('sku')
         for i in range(sku_count):  # 遍历sku
             self.sku = self.date[i]['sku']  # sku
-            if self.sku ==self.test_sku:  # 指定sku测试
-            # if self.sku in  ["H5160","H5161","H5080","H5081","H5082"]:  # 指定sku测试
-            # if 1 == 1:  # 所有sku测试
+            if self.sku == self.test_sku:  # 指定sku测试
+                # if self.sku in  ["H5160","H5161","H5080","H5081","H5082"]:  # 指定sku测试
+                # if 1 == 1:  # 所有sku测试
                 print("=========================================")
                 print("==================查询===================")
                 print("=========================================")
                 print("sku--->", self.sku)
                 self.device = self.date[i]['device']  # 设备devices
                 print("Device--->", self.device)
-                api.status_query(self.sku,self.device)   # 查询
+                api.status_query(self.sku, self.device)  # 查询
                 # self.function_device(i)    # 功能
-            elif self.test_sku == None:   # 全部测试
+            elif self.test_sku == None:  # 全部测试
                 print("=========================================")
                 print("==================查询===================")
                 print("=========================================")
                 print("sku--->", self.sku)
                 self.device = self.date[i]['device']  # 设备devices
                 print("Device--->", self.device)
-                api.status_query(self.sku,self.device)   # 查询
+                api.status_query(self.sku, self.device)  # 查询
                 # self.function_device(i)  # 功能
 
-    def function_device(self,sku):
+    def function_device(self, sku):
         type_count = self.date[sku]['capabilities']  # 每个sku中type个数   7173为例：开关、滑块、模式。3种type
         # mode
         print("开始测试{}".format(self.sku))
@@ -209,7 +209,7 @@ class ApiTest:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
                                                mode[0],
                                                mode[1])
-                    elif self.sku == "H7172":   # 制冰机
+                    elif self.sku == "H7172":  # 制冰机
                         mode_list = [(1, 0), (2, 0), (3, 0), (4, 0)]
                         for mode in mode_list:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
@@ -272,7 +272,7 @@ class ApiTest:
             elif self.sku_instance == "colorRgb":
                 # result = (255 << 16) + (255 << 8) + 255  # 颜色算法
                 value_max = random.randint(1, 16777215)
-                for value in [16711680, 65280, 255, 1,value_max, 16777215, 16777216]:
+                for value in [16711680, 65280, 255, 1, value_max, 16777215, 16777216]:
                     print("夜灯颜色:", value)
                     api.enum_api(self.sku, self.device, self.sku_type, self.sku_instance, value)
             # 加湿器 热雾
@@ -290,7 +290,8 @@ class ApiTest:
                     api.enum_api(self.sku, self.device, self.sku_type, self.sku_instance, value, cn_name)
             elif self.sku_instance == "lightScene":
                 if self.sku == 'H7161':
-                    for value in [12549,12550, 12551, 12552, 12553,12554, 12555, 12556,12557,12558,12559,12560,12561,12562]:
+                    for value in [12549, 12550, 12551, 12552, 12553, 12554, 12555, 12556, 12557, 12558, 12559, 12560,
+                                  12561, 12562]:
                         print("夜灯颜色:", value)
                         api.enum_api(self.sku, self.device, self.sku_type, self.sku_instance, value)
                 elif self.sku == 'H7162':
@@ -330,14 +331,14 @@ class ApiTest:
             }
 
             print("send->:", power_json)
-            if self.services =="qa":
+            if self.services == "qa":
                 response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/control",
                                          headers=self.headers,
                                          json=power_json)
             else:
                 response = requests.post(url="https://test-openapi.api.govee.com/router/api/v1/device/control",
-                                     headers=self.headers,
-                                     json=power_json)
+                                         headers=self.headers,
+                                         json=power_json)
 
             print("receive->", response.text)
             if "200" in str(response):
@@ -498,7 +499,7 @@ class ApiTest:
         time.sleep(5)
 
     # 状态查询
-    def status_query(self,sku, device):
+    def status_query(self, sku, device):
         """
         :param sku:
         :param device:
@@ -514,11 +515,11 @@ class ApiTest:
         print("send->:", status_json)
 
         if self.services == "qa":
-            response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/state",   # 正服
+            response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/state",  # 正服
                                      headers=self.headers,
                                      json=status_json)
         else:
-            response = requests.post(url="https://test-openapi.api.govee.com/router/api/v1/device/state",   # 测服
+            response = requests.post(url="https://test-openapi.api.govee.com/router/api/v1/device/state",  # 测服
                                      headers=self.headers,
                                      json=status_json)
         print("receive->", response.text)
@@ -530,8 +531,7 @@ if __name__ == '__main__':
     # services = 'dev'
     sku = "H7131"
     services = 'qa'
-    api = ApiTest(services,sku)   # 如果要测试账号下所有sku，就去掉传值sku
+    api = ApiTest(services, sku)  # 如果要测试账号下所有sku，就去掉传值sku
     # api = ApiTest(services)
     # while True:
     api.all_device()
-

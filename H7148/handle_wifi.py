@@ -3,7 +3,7 @@
 # @Time    : 
 # @Author  :yansheng.wang 
 # @File    : 
-# @Description : 作用
+# @Description : 配网压测
 import subprocess
 import threading
 import time
@@ -18,7 +18,7 @@ from logs import get_log
 
 
 class H7148_Wifi:
-    def __init__(self, com, com1, dbs, dbs1, timeout):
+    def __init__(self, com, com1, dbs, dbs1, timeout,sku,sku_des):
         # self.device = u2.connect()
         self.device = u2.connect('R5CR20H14AV')
         # self.device = u2.connect('424e4d504c383098')
@@ -33,7 +33,8 @@ class H7148_Wifi:
         self.get_log = get_log.GetLog(path)
         # 获取手机分辨率
         self.width, self.height = self.device.window_size()
-        self.sku = 'H7148'
+        self.sku = sku
+        self.sku_des = sku_des
         self.in_page_num = 0
         try:
             # self.ser = serial.Serial(com,
@@ -78,13 +79,13 @@ class H7148_Wifi:
                         time.sleep(2)
                         if self.device(text="继续").exists():
                             self.device(text="继续").click_exists(timeout=5)
-                        if self.device(text='H7148_DCD6').exists(timeout=10):
+                        if self.device(text=self.sku_des).exists(timeout=10):
                             break
                         else:
                             self.device(text='重新扫描').click_exists(timeout=10)
                     # 选择设备  H5086_681B   H5086_67c9
                     while True:
-                        self.device(text='H7148_DCD6').click_exists(timeout=10)
+                        self.device(text=self.sku_des).click_exists(timeout=10)
 
                         if self.device(text='设备Wi-Fi指示灯以白色慢闪，请短按设备电源键').exists(timeout=10):
                             break
@@ -216,5 +217,7 @@ class H7148_Wifi:
 
 
 if __name__ == '__main__':
-    handle_H7148 = H7148_Wifi('com7', 'com7', 115200, 9600, 1)  # com为串口日志，com1为继电器
+    sku = "H7148"
+    sku_des = "H7148_FA09"
+    handle_H7148 = H7148_Wifi('com7', 'com7', 115200, 9600, 1,sku,sku_des)  # com为串口日志，com1为继电器
     handle_H7148.add_devise_devices()
