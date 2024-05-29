@@ -35,11 +35,12 @@ class ApiTest:
     def all_device(self):
         # print(self.response.text)
         self.date = json.loads(self.response.text)
-        # print(date)
+        # print(self.date)
         str_data = json.dumps(self.date)
         sku_count = str_data.count('sku')
         for i in range(sku_count):  # 遍历sku
-            self.sku = self.date[i]['sku']  # sku
+            self.sku = self.date["data"][i]['sku']  # sku
+            # print(self.sku)
             if self.sku == self.test_sku:  # 指定sku测试
                 # if self.sku in  ["H5160","H5161","H5080","H5081","H5082"]:  # 指定sku测试
                 # if 1 == 1:  # 所有sku测试
@@ -47,22 +48,22 @@ class ApiTest:
                 print("==================查询===================")
                 print("=========================================")
                 print("sku--->", self.sku)
-                self.device = self.date[i]['device']  # 设备devices
+                self.device = self.date["data"][i]['device']  # 设备devices
                 print("Device--->", self.device)
-                api.status_query(self.sku, self.device)  # 查询
-                # self.function_device(i)    # 功能
-            elif self.test_sku == None:  # 全部测试
+                # api.status_query(self.sku, self.device)  # 查询
+                self.function_device(i)  # 功能
+            elif self.test_sku is None:  # 全部测试
                 print("=========================================")
                 print("==================查询===================")
                 print("=========================================")
                 print("sku--->", self.sku)
                 self.device = self.date[i]['device']  # 设备devices
                 print("Device--->", self.device)
-                api.status_query(self.sku, self.device)  # 查询
-                # self.function_device(i)  # 功能
+                # api.status_query(self.sku, self.device)  # 查询
+                self.function_device(i)  # 功能
 
     def function_device(self, sku):
-        type_count = self.date[sku]['capabilities']  # 每个sku中type个数   7173为例：开关、滑块、模式。3种type
+        type_count = self.date["data"][sku]['capabilities']  # 每个sku中type个数   7173为例：开关、滑块、模式。3种type
         # mode
         print("开始测试{}".format(self.sku))
         # print(type_count)
@@ -149,6 +150,31 @@ class ApiTest:
                         api.auto_mode_api(self.sku, self.device, self.sku_type, self.sku_instance,
                                           value_auto[0],
                                           value_auto[1], cn_name, value_auto[2])
+            elif self.sku_instance == "rangeTemperature":
+                cn_name = "范围目标温度"
+                if "H713" in self.sku:
+                    low_random_value_Celsius = random.randint(5, 15)
+                    high_random_value_Celsius1 = random.randint(15, 30)
+                    low_value_Celsius_err = random.randint(-10, 4)
+                    high_value_Celsius_err1 = random.randint(31, 100)
+                    low_random_value_Fahrenheit = random.randint(41, 60)
+                    high_random_value_Fahrenheit1 = random.randint(60, 86)
+                    low_value_Fahrenheit_err = random.randint(-10, 40)
+                    high_value_Fahrenheit_err1 = random.randint(87, 100)
+                    auto_value_list = [
+                        ('Celsius', 1, low_random_value_Celsius, high_random_value_Celsius1, 1),
+                        ('Celsius', 2, low_random_value_Celsius, high_random_value_Celsius1, 1),
+                        ('Celsius', 3, low_random_value_Celsius, high_random_value_Celsius1, 1),
+                        ('Celsius', 1, low_value_Celsius_err, high_value_Celsius_err1, 1),
+                        ('Fahrenheit', 1, low_random_value_Fahrenheit, high_random_value_Fahrenheit1, 1),
+                        ('Fahrenheit', 2, low_random_value_Fahrenheit, high_random_value_Fahrenheit1, 1),
+                        ('Fahrenheit', 3, low_random_value_Fahrenheit, high_random_value_Fahrenheit1, 1),
+                        ('Fahrenheit', 2, low_value_Fahrenheit_err, high_value_Fahrenheit_err1, 1),
+                    ]
+                    for value_auto in auto_value_list:
+                        api.range_auto_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                                value_auto[0], value_auto[1], value_auto[2], value_auto[3],
+                                                value_auto[4])
             # 夜灯场景
             elif self.sku_instance == "nightlightScene":
                 cn_name = "夜灯场景"
@@ -203,7 +229,7 @@ class ApiTest:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
                                                mode[0],
                                                mode[1])
-                    elif self.sku == "H7171":
+                    elif self.sku in ["H7171", "H717A"]:
                         mode_list = [(1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0)]
                         for mode in mode_list:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
@@ -215,6 +241,20 @@ class ApiTest:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
                                                mode[0],
                                                mode[1])
+                    else:
+                        mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 0), (2, 1), (3, 0),
+                                     (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3),
+                                     (4, 4), (4, 5)]
+                        for mode in mode_list:
+                            self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                               mode[0],
+                                               mode[1])
+                elif "H718" in self.sku:  # 厨余机
+                    mode_list = [(1, 0), (2, 0), (3, 0), (0, 0), (4, 0)]
+                    for mode in mode_list:
+                        self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                           mode[0],
+                                           mode[1])
                 elif "H712" in self.sku:
                     if self.sku == "H7120":
                         mode_list = [(0, 1), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (5, 0)]
@@ -248,6 +288,14 @@ class ApiTest:
                             self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
                                                mode[0],
                                                mode[1])
+                    else:
+                        mode_list = [(0, 1), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 2),
+                                     (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (2, 9), (2, 10), (2, 11),
+                                     (2, 12), (2, 13), (2, 14), (3, 0), (3, 1), (5, 0), (5, 1)]
+                        for mode in mode_list:
+                            self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                               mode[0],
+                                               mode[1])
                 elif "H715" in self.sku:
                     mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (3, 0), (8, 0), (1, 1)]
                     for mode in mode_list:
@@ -255,13 +303,23 @@ class ApiTest:
                                            mode[0],
                                            mode[1])
                 elif "H710" or "H711" in self.sku:
-                    mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9),
-                                 (2, 0), (3, 0),
-                                 (5, 0), (6, 0), (7, 0)]
-                    for mode in mode_list:
-                        self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
-                                           mode[0],
-                                           mode[1])
+                    if self.sku == "H7112":
+                        mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9),
+                                     (2, 0), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8),
+                                     (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8),
+                                     (5, 0)]
+                        for mode in mode_list:
+                            self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                               mode[0],
+                                               mode[1])
+                    else:
+                        mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9),
+                                     (2, 0), (3, 0),
+                                     (5, 0), (6, 0), (7, 0)]
+                        for mode in mode_list:
+                            self.work_mode_api(self.sku, self.device, self.sku_type, self.sku_instance, cn_name,
+                                               mode[0],
+                                               mode[1])
             # 夜灯亮度
             elif self.sku_instance == "brightness":
                 value_max = random.randint(1, 100)
@@ -330,7 +388,7 @@ class ApiTest:
                 }
             }
 
-            print("send->:", power_json)
+            print("send->:", str(power_json).replace("'", '"'))
             if self.services == "qa":
                 response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/control",
                                          headers=self.headers,
@@ -400,8 +458,7 @@ class ApiTest:
                         }
                     }
                 }
-
-            print("send->:", str(work_mode_json))
+            print("send->:", str(work_mode_json).replace("'", '"'))
             if self.services == "qa":
                 response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/control",
                                          headers=self.headers,
@@ -471,7 +528,7 @@ class ApiTest:
                         }
                     }
                 }
-            print("send->:", mode_json)
+            print("send->:", str(mode_json).replace("'", '"'))
             if self.services == "qa":
                 response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/control",
                                          headers=self.headers,
@@ -498,6 +555,67 @@ class ApiTest:
             # pass
         time.sleep(5)
 
+    def range_auto_mode_api(self, sku, device, sku_type, instance, cnname, unit, gearMode, lowerSetpoint, upperSetpoint,
+                            autoStop=None):
+
+        """
+        :param sku:  H713X
+        :param device:
+        :param sku_type:
+        :param instance:
+        :param value:
+        :return:  自动模式、范围目标温度值、自动停止开关
+        """
+        print("==================执行{0}===================".format(instance))
+        try:
+            if autoStop != None:
+                mode_json = {
+                    "requestId": "1",
+                    "payload": {
+                        "sku": sku,
+                        "device": device,
+                        "capability": {
+                            "type": sku_type,
+                            "instance": instance,
+                            "value": {
+                                "lowerSetpoint": lowerSetpoint,
+                                "upperSetpoint": upperSetpoint,
+                                "gearMode": gearMode,
+                                "unit": unit,
+                                "autoStop": autoStop
+                            }
+                        }
+                    }
+                }
+            print("send->:", str(mode_json).replace("'", '"'))
+            if self.services == "qa":
+                response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/control",
+                                         headers=self.headers,
+                                         json=mode_json)
+            else:
+                response = requests.post(url="https://test-openapi.api.govee.com/router/api/v1/device/control",
+                                         headers=self.headers,
+                                         json=mode_json)
+            print("receive->", response.text)
+            if "200" in str(response):
+                if 'failure' in json.loads(response.text)['capability']['state']['status']:
+                    print(str(cnname) + "[温度：" + str(lowerSetpoint) + "-" + str(
+                        upperSetpoint) + "度" + "档位：" + str(gearMode) + " 自动开关：" + str(
+                        autoStop) + " 温度单位：" + str(unit) + "]---->失败")
+                    print('\n')
+                else:
+                    print(str(cnname) + "[温度：" + str(lowerSetpoint) + "-" + str(
+                        upperSetpoint) + "度" + "档位：" + str(gearMode) + " 自动开关：" + str(
+                        autoStop) + " 温度单位：" + str(unit) + "]---->成功")
+                    print('\n')
+
+            elif "429" in str(response):
+                print("Status：429 Too Many Requests")
+        except Exception as e:
+            print(e)
+            # pass
+        time.sleep(5)
+
     # 状态查询
     def status_query(self, sku, device):
         """
@@ -512,8 +630,7 @@ class ApiTest:
                 "device": device,
             }
         }
-        print("send->:", status_json)
-
+        print("send->:", str(status_json).replace("'", '"'))
         if self.services == "qa":
             response = requests.post(url="https://openapi.api.govee.com/router/api/v1/device/state",  # 正服
                                      headers=self.headers,
@@ -528,9 +645,9 @@ class ApiTest:
 
 
 if __name__ == '__main__':
-    # services = 'dev'
-    sku = "H7131"
-    services = 'qa'
+    services = 'dev'
+    sku = "H713E"
+    # services = 'qa'
     api = ApiTest(services, sku)  # 如果要测试账号下所有sku，就去掉传值sku
     # api = ApiTest(services)
     # while True:

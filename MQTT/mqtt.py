@@ -1,15 +1,17 @@
 import datetime
-import ssl
 import json
+import ssl
+
 import paho.mqtt.client as mqtt
 
 
 class MQTTClient:
     mqtt_data = None
 
-    def mqttclient(self, mqtt_topic, formal_or_test):
+    def mqttclient(self, mqtt_topic, formal_or_test, username=None, password=None):
         if formal_or_test:
-            mqtt_broker = "aqm3wd1qlc3dy.iot.us-east-1.amazonaws.com"
+            mqtt_broker = "aqm3wd1qlc3dy.iot.us-east-1.amazonaws.com"   # 正常监听
+            # mqtt_broker = "mqtt.openapi.govee.com"   # api监听
             mqtt_port = 8883
             mqtt_client_id = "mqttx_b12cd818"
             mqtt_client = mqtt.Client(client_id=mqtt_client_id)  # 创建MQTT客户端
@@ -19,8 +21,13 @@ class MQTTClient:
                                 keyfile="Conf/testIot.private.key",
                                 cert_reqs=ssl.CERT_REQUIRED,
                                 tls_version=ssl.PROTOCOL_TLSv1_2)
+
+            mqtt_client.username_pw_set(username=username, password=password)
         else:
-            mqtt_broker = "a3d1vz6v56pkuw-ats.iot.us-east-1.amazonaws.com"
+            print(username)
+            print(password)
+            mqtt_broker = "a3d1vz6v56pkuw-ats.iot.us-east-1.amazonaws.com" # 正常监听
+            # mqtt_broker = "dev-mqtt.openapi.govee.com"  # api监听
             mqtt_port = 8883
             mqtt_client_id = "mqttx_2bd59eaf"
             mqtt_client = mqtt.Client(client_id=mqtt_client_id)  # 创建MQTT客户端
@@ -30,6 +37,7 @@ class MQTTClient:
                                 keyfile="dev_Conf/b2f000de59-private.pem.key",
                                 cert_reqs=ssl.CERT_REQUIRED,
                                 tls_version=ssl.PROTOCOL_TLSv1_2)
+            mqtt_client.username_pw_set(username=username, password=password)
         mqtt_client.connect(mqtt_broker, mqtt_port)
         mqtt_client.subscribe(mqtt_topic)
         # 开启MQTT循环监听
@@ -47,7 +55,7 @@ class MQTTClient:
             dist_date = json.loads(msg.payload.decode('UTF-8'))
             now_time = datetime.datetime.now()
             formatted_time = now_time.strftime("%Y-%m-%d %H:%M:%S")
-            print("{0}\n{1}\n".format(formatted_time,dist_date))
+            print("{0}\n{1}\n".format(formatted_time, dist_date))
             mqtt_data = msg.payload.decode('UTF-8')
             return mqtt_data
         else:
@@ -55,9 +63,11 @@ class MQTTClient:
 
 
 if __name__ == '__main__':
-    formal_or_test = 0 # 1正服  0测服
+    formal_or_test = 0  # 1正服  0测服
     # 正服
     # r = MQTTClient().mqttclient("GA/760c770c58dffc6523c87e135f0a65d8", formal_or_test)
     # 测服
-    r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)   # 95177
+    # MQTTClient().mqttclient("GA/e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1", formal_or_test,
+    #                             "e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1", "e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1")  # 95177
     # r = MQTTClient().mqttclient("GA/1304696fb15c4a75b20e6c4eb14cb095", formal_or_test)   # 19638
+    r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)   # 95177

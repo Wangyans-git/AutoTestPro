@@ -184,8 +184,8 @@ class ErpHandle:
 
 
 if __name__ == '__main__':
-    sku = 'H7131'
-    aid = "10333283 "
+    sku = 'H7148'
+    aid = "2408209"
     deviceid = [""]
     formal_test = 1  # 1正服  0测服
     erp = ErpHandle(formal_test)

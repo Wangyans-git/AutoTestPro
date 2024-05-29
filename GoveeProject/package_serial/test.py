@@ -157,7 +157,7 @@ random_time = "{:02d}:{:02d}".format(hour, minute)
 
 def run_test():
     try:
-        device = u2.connect("R5CRC1V0GLW")
+        device = u2.connect()
         # device = u2.connect("192.168.50.37")
         # device.shell("input keyevent 26")
         time.sleep(3)
@@ -185,7 +185,7 @@ def run_test():
 
 def open_servers():
     try:
-        device = u2.connect("R5CRC1V0GLW")
+        device = u2.connect()
         # device = u2.connect("192.168.50.37")
         # device.shell("input keyevent 26")
         time.sleep(2)
@@ -209,8 +209,8 @@ def my_task():
 scheduler = schedule.Scheduler()
 
 # scheduler.every().day.at(random_time).do(my_task)
-scheduler.every().day.at("09:18").do(my_task)
-# scheduler.every().monday.at("09:25").do(my_task)
+scheduler.every().day.at("09:20").do(my_task)
+# scheduler.every().monday.at("09:15").do(my_task)
 
 n = 0
 # 无限循环，直到任务执行
