@@ -6,6 +6,7 @@
 # @Description : 单机压测
 import random
 import subprocess
+import threading
 import time
 
 import schedule
@@ -151,13 +152,12 @@ minute = random.randint(15, 25)
 # 格式化为时间字符串
 random_time = "{:02d}:{:02d}".format(hour, minute)
 
-
 # print(random_time)
+device = u2.connect()
 
 
 def run_test():
     try:
-        device = u2.connect()
         # device = u2.connect("192.168.50.37")
         # device.shell("input keyevent 26")
         time.sleep(3)
@@ -185,9 +185,6 @@ def run_test():
 
 def open_servers():
     try:
-        device = u2.connect()
-        # device = u2.connect("192.168.50.37")
-        # device.shell("input keyevent 26")
         time.sleep(2)
         device.app_start('com.govee.home')
         time.sleep(3)
@@ -199,6 +196,22 @@ def open_servers():
         print(e)
 
 
+# def thread_watch():
+#     thread = threading.Thread(target=watch)
+#     thread.start()
+#
+#
+# # 监控弹窗
+# def watch():
+#     while 1:
+#         # print("复制到粘贴板")
+#         if device(text='知道了').exists():
+#             device(text='知道了').click_exists(timeout=10)
+#         if device(text='复制到粘贴板').exists():
+#             device(text='复制到粘贴板').click_exists(timeout=10)
+#         time.sleep(10)
+
+
 # run_test()
 def my_task():
     print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
@@ -208,12 +221,13 @@ def my_task():
 
 scheduler = schedule.Scheduler()
 
-# scheduler.every().day.at(random_time).do(my_task)
-scheduler.every().day.at("09:20").do(my_task)
-# scheduler.every().monday.at("09:15").do(my_task)
+# scheduler.every().day.at("10:06").do(my_task)
+scheduler.every().day.at("09:23").do(my_task)
+# scheduler.every().monday.at("09:20").do(my_task)
 
 n = 0
 # 无限循环，直到任务执行
+# thread_watch()  # 处理 弹窗
 while True:
     scheduler.run_pending()
     print(n)

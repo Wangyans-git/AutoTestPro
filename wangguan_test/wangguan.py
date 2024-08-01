@@ -13,7 +13,7 @@ import os
 import cv2
 
 
-from H7142.get_log.get_log import GetLog
+from log.get_log import GetLog
 
 
 class H7135Test:
@@ -32,7 +32,7 @@ class H7135Test:
         self.save_path = './error_iamge/'
 
         # 创建空白图片对象（作为累加结果）
-        self.result_image = Image.new('RGB', (0, 0))
+        # self.result_image = Image.new('RGB', (0, 0))
 
     def calculate(self,p3):
         try:

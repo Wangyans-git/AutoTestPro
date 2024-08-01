@@ -1,0 +1,26 @@
+# 通用
+power: [ -1, 0, 1, 2 ]   # 开关
+oscillationToggle_power: [ -1, 0, 1, 2 ]   # 摇头开关
+nightlightToggle_power: [ -1, 0, 1, 2 ]   # 夜灯开关
+airDeflectorToggle_power: [ -1, 0, 1, 2 ]   # 摆叶开关
+
+
+heater_auto: # 取暖器
+  temperature: [ 5,30,41,86 ]    # 温度
+  unit: [ "Celsius","Fahrenheit" ]  # 温度单位
+  auto_value: [ 1,0 ]    # 自动停止开关
+
+heater_range_auto: # 取暖器
+  lower_temperature: [ 5,15,41,60 ]    # 温度
+  upper_temperature: [ 15,30,60,86 ]    # 温度
+  gearMode: [ 1,2,3 ]
+  unit: [ "Celsius","Fahrenheit" ]  # 温度单位
+  auto_value: [ 1,0 ]    # 自动停止开关
+
+kettle_auto: # 水壶
+  temperature: [ 40,100 ]    # 温度
+  unit: [ "Celsius","Fahrenheit" ]  # 温度单位
+
+humidity_auto: # 加湿器
+  humidity_value: [ 40,80 ]
+

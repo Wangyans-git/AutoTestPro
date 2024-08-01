@@ -4,6 +4,7 @@
 # @Author  :yansheng.wang 
 # @File    : 
 # @Description : 单机压测
+import threading
 import time
 
 import uiautomator2 as u2
@@ -14,9 +15,9 @@ from H7148.logs.get_log import GetLog
 class H7148Test:
     def __init__(self):
         self.device = u2.connect_usb()
-        self.device.app_start('com.govee.home')
+        self.device.app_start('com.govee.home', use_monkey=True)
         self.device.implicitly_wait(30)  # 元素等待时间30s
-        # self.device.settings['operation_delay'] = (0, 1)  # 每次点击后等待2s
+        self.device.settings['operation_delay'] = (0, 2)  # 每次点击后等待2s
         # 脚本日志
         self.get_log = GetLog("H7148_log.log")
         # 获取手机分辨率
@@ -71,18 +72,6 @@ class H7148Test:
 
                     except Exception as e:
                         print(e)
-                    else:
-                        if self.device(resourceId='com.govee.home:id/btn_cancel').exists():
-                            self.device(resourceId='com.govee.home:id/btn_cancel').click_exists(timeout=2)
-                            self.get_log.info("又有弹窗了，哪里来的？")
-                        elif self.device(resourceId='com.govee.home:id/dialog_done').exists():
-                            self.device(resourceId='com.govee.home:id/dialog_done').click_exists(timeout=2)
-                            self.get_log.info("又有弹窗了，哪里来的？")
-                        elif self.device(resourceId='com.govee.home:id/btn_done').exists():
-                            self.device(resourceId='com.govee.home:id/btn_done').click_exists(timeout=2)
-                            self.get_log.info("又有弹窗了，哪里来的？")
-                        else:
-                            pass
                 else:
                     while True:
                         self.device(text=self.sku).click_exists(timeout=5.0)
@@ -108,9 +97,25 @@ class H7148Test:
                 print(e)
             return False
 
+    def thread_watch(self):
+        thread = threading.Thread(target=self.watch)
+        thread.start()
+
+        # 监控弹窗
+
+    def watch(self):
+        device = u2.connect()
+        while True:
+            # print("复制到粘贴板")
+            if device(text='知道了').exists():
+                device(text='知道了').click_exists(timeout=10)
+            if device(text='复制到粘贴板').exists():
+                device(text='复制到粘贴板').click_exists(timeout=10)
+            time.sleep(5)
+
 
 if __name__ == '__main__':
     test = H7148Test()
+    test.thread_watch()
     n = 1
-    while True:
-        test.start_test()
+    test.start_test()

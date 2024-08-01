@@ -7,8 +7,8 @@
 import json
 import time
 
+import matplotlib.pyplot as plt
 import requests
-import thekey
 
 
 # /***
@@ -50,7 +50,7 @@ import thekey
 # print(log_file)
 
 
-class ErpHandle:
+class ChartHandle:
     def __init__(self, formal_test_flag):
         self.formal_test_flag = formal_test_flag
         self.headers = {
@@ -81,6 +81,8 @@ class ErpHandle:
         self.num_all = 0
         self.devices_list = []
         self.erp_text_all = ''
+        self.humidity_list = []
+        self.Gear_list = []
 
     def get_device(self, get_aid=None, get_sku=None):
 
@@ -127,7 +129,7 @@ class ErpHandle:
             for i in range(0, 10):
                 json_erp = {
                     "device": self.devices_list[devices],
-                    "searchType": 12,
+                    "searchType": 28,
                     "pageSize": 1000,
                     "pageNum": i + 1
                 }
@@ -147,46 +149,53 @@ class ErpHandle:
                 # print(erp_text)
                 for data in erp_text['data']['data']['list']:
                     time_erp = data['timestamps']
-                    data_erp = data['data']
+                    data_erp = data['data']['data']['data']
                     self.data_erp_sku = data['data']['sku']
                     # if data_erp['bizType'] == "LWT":  # 过滤掉LWT日志
                     #     pass
                     # else:
-                    self.erp_text_all += (str(time_erp) + "\n").replace("'", '"')
-                    self.erp_text_all += (str(data_erp) + "\n").replace("'", '"').replace(" ", "") \
-                        .replace("True", "true").replace('"message":{', '"message":"{') \
-                        .replace('},"@timestamp"', '}","@timestamp"')
-                    self.erp_text_all += '\n'
+                    self.erp_text_all += str(data_erp)
+
                 if "True" in str(erp_text['data']['data']['hasNext']):
                     print("第{}页".format(i + 1))
                 else:
                     print("第{}页,最后一页".format(i + 1))
                     break
-            if self.erp_text_all != "":
-                try:
-                    # with open("tool/in_log.txt", "w") as file:
-                    #     file.write(self.erp_text_all)
-                    with open(f"原始数据\\{self.data_erp_sku}_{aid}_{self.device_name}.txt", "w") as file:
-                        # with open(f"原始数据\\{self.data_erp_sku}_{self.device_name}.txt", "w") as file:
-                        file.write(self.erp_text_all)
-                    self.num += 1
-                    print("第{0}个".format(self.num))
-                except Exception as e:
-                    print(e)
-                time.sleep(1)
+            self.erp_text_all = self.erp_text_all.split("|")
+            # print(self.erp_text_all)
+            try:
+                for i in self.erp_text_all:
+                    humidity = i.split(',')
+                    self.humidity_list.append(humidity[2])
+                    self.Gear_list.append(humidity[3])
+            except:
+                pass
+            print(len(self.humidity_list))
+            print(len(self.Gear_list))
+            self.get_curve()
+            if len(self.erp_text_all) != 0:
+                return self.erp_text_all
             else:
                 print("没日志")
             self.erp_text_all = ''
             time.sleep(2)
-
         # thekey.findit("oldA", "原始数据")   # 全文搜索关键字
+
+    def get_curve(self):
+        my_list = list(range(0, len(self.humidity_list)))
+        plt.plot(my_list, self.humidity_list)
+        plt.title('Example Curve')
+        plt.xlabel('X-axis')
+        plt.ylabel('Y-axis')
+        plt.show()
 
 
 if __name__ == '__main__':
-    sku = 'H7143'
-    aid = "7444889"
-    deviceid = ["E7:E1:54:32:04:F7:16:98"]
+    sku = 'H6011'
+    aid = "59720"
+    deviceid = ["31:DF:10:91:A8:41:61:88"]
     formal_test = 1  # 1正服  0测服
-    erp = ErpHandle(formal_test)
-    erp.get_erp(aid, sku, deviceid=None)  # 指定aid
-    # erp.get_erp(aid, sku, deviceid)  # 指定devices
+    erp = ChartHandle(formal_test)
+    # erp.get_erp(aid, sku, deviceid=None)  # 指定aid
+    erp.get_erp(aid, sku, deviceid)  # 指定devices
+

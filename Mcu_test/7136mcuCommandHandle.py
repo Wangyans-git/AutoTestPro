@@ -197,13 +197,19 @@ class McuCommandHandle():
 
     # 串口校验
     def log_check(self, dataList, option_type, sl):
+        """    主要修改这个方法
+        :param dataList:    所有返回的数据
+        :param option_type:   on
+        :param sl:   需要校验的数据：mcu_command列表里的数据
+        :return:
+        """
         substrings_to_remove = ['aa050000af', 'aa050000', 'aa0500', "aa05"]   # 过滤心跳数据
         dataList_rep = dataList
         for sub in substrings_to_remove:
             dataList_rep = dataList_rep.replace(sub, "")
         # print(dataList_rep)  # 输出: 9b0019b
         if option_type == 'on':
-            start = len(dataList_rep) - 200
+            start = len(dataList_rep) - 200   # 截取数据长度，这里需要看输出调整
         # elif len(self.value_data) == 11:
         #     start = len(dataList_rep) - 10
         # elif len(self.value_data) == 113:

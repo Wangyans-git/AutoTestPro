@@ -6,10 +6,9 @@
 # @Description : 单机压测
 import threading
 import time
-
 import uiautomator2 as u2
 
-from H7135.logs.get_log import GetLog
+from logs.get_log import GetLog
 
 
 class H7135Test:
@@ -22,7 +21,7 @@ class H7135Test:
         self.get_log = GetLog("H7135_log.log")
         # 获取手机分辨率
         self.width, self.height = self.device.window_size()
-        self.sku = 'H7135OTA'
+        self.sku = 'H7135'
 
     def start_test(self):
 

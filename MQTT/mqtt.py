@@ -63,11 +63,11 @@ class MQTTClient:
 
 
 if __name__ == '__main__':
-    formal_or_test = 0  # 1正服  0测服
+    formal_or_test = 1  # 1正服  0测服
     # 正服
-    # r = MQTTClient().mqttclient("GA/760c770c58dffc6523c87e135f0a65d8", formal_or_test)
+    r = MQTTClient().mqttclient("GA/760c770c58dffc6523c87e135f0a65d8", formal_or_test)
     # 测服
     # MQTTClient().mqttclient("GA/e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1", formal_or_test,
     #                             "e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1", "e3d85d3d-eaa8-4070-b7e3-8ac64b33f9c1")  # 95177
     # r = MQTTClient().mqttclient("GA/1304696fb15c4a75b20e6c4eb14cb095", formal_or_test)   # 19638
-    r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)   # 95177
+    # r = MQTTClient().mqttclient("GA/305159cf7e83a942becdb879f59b6d76", formal_or_test)   # 95177

@@ -65,6 +65,7 @@ class ApiTest:
     def function_device(self, sku):
         type_count = self.date["data"][sku]['capabilities']  # 每个sku中type个数   7173为例：开关、滑块、模式。3种type
         # mode
+        print(type_count)
         print("开始测试{}".format(self.sku))
         # print(type_count)
         for mode_type in type_count:  # 遍历每个sku里的所有模式
@@ -303,7 +304,7 @@ class ApiTest:
                                            mode[0],
                                            mode[1])
                 elif "H710" or "H711" in self.sku:
-                    if self.sku == "H7112":
+                    if self.sku in ["H7112",'H7106']:
                         mode_list = [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9),
                                      (2, 0), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8),
                                      (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8),
@@ -646,7 +647,7 @@ class ApiTest:
 
 if __name__ == '__main__':
     services = 'dev'
-    sku = "H713E"
+    sku = "H7106"
     # services = 'qa'
     api = ApiTest(services, sku)  # 如果要测试账号下所有sku，就去掉传值sku
     # api = ApiTest(services)

@@ -1,6 +1,7 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 
 
 class ExecuteOta(object):
@@ -121,7 +122,8 @@ class ExecuteOta(object):
                             self.device_one_b += 1
                             print("device_one_b += 1")
 
-                    print(self.device_sn_one + "已经升级" + self.update_version_b + ": " + str(self.device_one_b) + "次")
+                    print(
+                        self.device_sn_one + "已经升级" + self.update_version_b + ": " + str(self.device_one_b) + "次")
                     time.sleep(30)
                 # 报503
                 elif "Got 5.03 status code" in update_check.text:
@@ -150,7 +152,8 @@ class ExecuteOta(object):
                             self.device_one_a += 1
                             print("device_one_a += 1")
 
-                    print(self.device_sn_one + "已经升级" + self.update_version_a + ": " + str(self.device_one_a) + "次")
+                    print(
+                        self.device_sn_one + "已经升级" + self.update_version_a + ": " + str(self.device_one_a) + "次")
                     time.sleep(30)
 
             # 第二台机器one，执行A版本
@@ -189,7 +192,8 @@ class ExecuteOta(object):
                             self.device_two_b += 1
                             print("device_two_b += 1")
 
-                    print(self.device_sn_two + "已经升级" + self.update_version_b + ": " + str(self.device_two_b) + "次")
+                    print(
+                        self.device_sn_two + "已经升级" + self.update_version_b + ": " + str(self.device_two_b) + "次")
                     time.sleep(30)
                 # 报503
                 elif "Got 5.03 status code" in update_check.text:
@@ -215,7 +219,8 @@ class ExecuteOta(object):
                             self.device_two_a += 1
                             print("device_two_a += 1")
 
-                    print(self.device_sn_two + "已经升级" + self.update_version_a + ": " + str(self.device_two_a) + "次")
+                    print(
+                        self.device_sn_two + "已经升级" + self.update_version_a + ": " + str(self.device_two_a) + "次")
                     time.sleep(30)
 
             # 第三台机器one，执行A版本
@@ -429,6 +434,7 @@ class ExecuteOta(object):
             #         time.sleep(30)
 
 
-run = ExecuteOta()
-while True:
-    run.run_trim2()
+if __name__ == '__main__':
+    run = ExecuteOta()
+    while True:
+        run.run_trim2()

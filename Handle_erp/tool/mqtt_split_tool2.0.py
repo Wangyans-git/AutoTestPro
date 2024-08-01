@@ -8,7 +8,7 @@ from pathlib import Path
 
 import chardet
 
-SKU = "H7130"
+SKU = "H7135"
 Version = "v1.0"
 
 FILE = Path(__file__).resolve()
@@ -17,7 +17,7 @@ file_path = str(Path(ROOT) / "原始数据")
 # LOG_FILE_NAME = "in_log.txt"
 # DECODE_FILE_NAME = "out_log.txt"
 # 输入用户的时区
-USER_TIMEZONE = -8
+USER_TIMEZONE = -5
 # This website could query the location of timezone all around the world
 # https://www.zeitverschiebung.net/cn/
 # New York City -5
@@ -672,16 +672,24 @@ def Analyze(utils_s_s):
             try:
                 if 'warn' in self.log_dev_json:
                     self.prase_general_info("warn:", self.log_dev_json['warn'])
-
+            except Exception:
+                pass
+            try:
                 if 'type' in self.log_dev_json:
                     self.prase_general_info("type:", self.log_dev_json['type'])
-
+            except Exception:
+                pass
+            try:
                 if 'op' in self.log_dev_json:
                     self.prase_BLE_decode(self.log_dev_json['op']['command'])
-
+            except Exception:
+                pass
+            try:
                 if 'state' in self.log_dev_json:
                     self.prase_status_info(self.log_dev_json['state'])
-
+            except Exception:
+                pass
+            try:
                 if 'timestamp' in self.log_dev_json:
                     self.prase_timestamp_info(self.log_dev_json['timestamp'])
             except Exception:

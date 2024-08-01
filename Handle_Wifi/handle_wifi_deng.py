@@ -82,20 +82,20 @@ class DistributionNetworkTest:
                     while True:
                         self.device(text=self.sku_des).click_exists(timeout=5)
                         time.sleep(1)
-                        if self.device(text='配对').exists():
+                        if self.device(resourceId='com.govee.home:id/done').exists(timeout=2):
                             break
                         else:
-                            if self.device(text="重新连接").exists():
+                            if self.device(text="重新连接").exists(timeout=2):
                                 self.device(text="重新连接").click_exists(timeout=5)
-                            if self.device(resourceId='com.govee.home:id/done').exists():
+                            if self.device(resourceId='com.govee.home:id/done').exists(timeout=2):
                                 break
-                            print("sku点不到了")
+
                 # 命名设备
                 print("点击配对")
 
                 # 继电器模拟点击配对
-                if self.device(text='配对').exists(timeout=30):
-                    time.sleep(2)
+                # if self.device(text='配对').exists(timeout=30):
+                #     time.sleep(2)
                     # try:
                     #     self.relay_ser.write(bytes.fromhex('A0 01 01 A2'))
                     #     time.sleep(0.5)
@@ -125,9 +125,7 @@ class DistributionNetworkTest:
                     while True:
                         print("配网")
                         self.device(resourceId="com.govee.home:id/send_wifi").click_exists(timeout=10)
-                        if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=60):
-                            break
-                        elif self.device(resourceId="com.govee.home:id/btnSwitch").exists(timeout=60):
+                        if self.device(resourceId="com.govee.home:id/btnSwitch").exists(timeout=60):
                             break
                         else:
                             print("配网时出错")
@@ -140,16 +138,15 @@ class DistributionNetworkTest:
                             self.device(resourceId='com.govee.home:id/skip').click_exists(timeout=10)
                             if self.device(resourceId="com.govee.home:id/btn_done").exists(timeout=10):
                                 self.device(resourceId="com.govee.home:id/btn_done").click_exists(timeout=10)
-                            if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=30):
+                            if self.device(resourceId="com.govee.home:id/btnSwitch").exists(timeout=30):
                                 break
                             else:
                                 print("跳过时出错")
                                 self.error_handle()
                         else:
                             break
-
-                # 绑定完成   # 家电
-                if self.device(resourceId='com.govee.home:id/iv_switch').exists(timeout=30):
+                # 灯
+                if self.device(resourceId='com.govee.home:id/btnSwitch').exists(timeout=30):
                     add_success_num += 1
                     print("配对配网后进入详情页成功次数：", add_success_num)
                     self.get_log.info("配对配网后进入详情页成功次数：{}".format(add_success_num))
@@ -158,7 +155,6 @@ class DistributionNetworkTest:
                     print("配对时长：", now_time)
                     self.get_log.info("配对时长：{}".format(now_time))
                     self.del_device()
-
             except Exception as e:
                 print("绑定出错：", e)
                 subprocess.call(['adb', 'shell', 'am', 'force-stop', 'com.govee.home'])
@@ -187,7 +183,7 @@ class DistributionNetworkTest:
             self.device.app_start('com.govee.home')
             if self.device(text=self.sku).exists(timeout=20):
                 self.device(text=self.sku).click_exists(timeout=10)
-                if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=30):
+                if self.device(resourceId="com.govee.home:id/btnSwitch").exists(timeout=30):
                     break
             else:
                 self.get_log.info("没添加成功")
@@ -197,15 +193,15 @@ class DistributionNetworkTest:
 
     def del_device(self):
         # 设置
-        if self.device(resourceId="com.govee.home:id/ivRightMost").exists(timeout=3):
+        if self.device(resourceId="com.govee.home:id/ivSet").exists(timeout=3):
             print("删除设备")
-            self.device(resourceId="com.govee.home:id/ivRightMost").click_exists(timeout=10)
+            self.device(resourceId="com.govee.home:id/ivSet").click_exists(timeout=10)
         elif self.device(resourceId="com.govee.home:id/btn_setting").exists(timeout=3):
             print("删除设备")
             self.device(resourceId="com.govee.home:id/btn_setting").click_exists(timeout=10)
-        elif self.device(resourceId="com.govee.home:id/ivSet").exists(timeout=3):
+        elif self.device(resourceId="com.govee.home:id/ivRightMost").exists(timeout=3):
             print("删除设备")
-            self.device(resourceId="com.govee.home:id/ivSet").click_exists(timeout=10)
+            self.device(resourceId="com.govee.home:id/ivRightMost").click_exists(timeout=10)
         time.sleep(2)
         self.down()
         time.sleep(2)

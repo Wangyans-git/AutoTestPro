@@ -7,13 +7,15 @@
 import subprocess
 import threading
 import time
-import uiautomator2 as u2
+
+
 import serial
 import serial.tools.list_ports
+import uiautomator2 as u2
 
-from H5086.logs import get_log
-from pathlib import Path
+from H7135.logs import get_log
 from datetime import datetime
+from pathlib import Path
 
 class H7135_Wifi:
     def __init__(self, com, com1, dbs, dbs1, timeout):
@@ -108,13 +110,13 @@ class H7135_Wifi:
                 # wifi配置
                 if self.device(text='Govee-2.4g').exists(timeout=60):
                     self.device(resourceId="com.govee.home:id/et_pwd").clear_text()
-                    
+
                     self.device(resourceId="com.govee.home:id/et_pwd").send_keys("starstarlight")
-                    
+
                     while True:
                         print("配网")
                         self.device(resourceId="com.govee.home:id/send_wifi").click_exists(timeout=30)
-                        
+
                         if self.device(resourceId="com.govee.home:id/iv_switch").exists(timeout=60):
                             break
                 elif self.device(text='Aircove-AX1800').exists(timeout=60):
@@ -148,7 +150,7 @@ class H7135_Wifi:
                 if self.device(resourceId="com.govee.home:id/btn_setting").exists(timeout=30):
                     print("删除设备")
                     self.device(resourceId="com.govee.home:id/btn_setting").click_exists(timeout=30)
-                    
+
                     """ 删除设备 """
                     time.sleep(2)
                     self.down()
@@ -156,7 +158,7 @@ class H7135_Wifi:
                     while True:
                         self.down()
                         self.device(resourceId="com.govee.home:id/btn_delete").click_exists(timeout=30)
-                        
+
                         time.sleep(2)
                         # if self.device(resourceId="com.govee.home:id/tvComfirm").exists(timeout=5):  # 错误
                         #     self.device(resourceId="com.govee.home:id/tvComfirm").click_exists(timeout=30)
@@ -165,7 +167,7 @@ class H7135_Wifi:
                             time.sleep(2)
                             break
                     self.device(resourceId="com.govee.home:id/btn_done").click_exists(timeout=30)
-                    
+
                     # if self.device(resourceId="com.govee.home:id/tvComfirm").exists(timeout=5):  # 错误
                     #     self.device(resourceId="com.govee.home:id/tvComfirm").click_exists(timeout=30)
                     time.sleep(5)

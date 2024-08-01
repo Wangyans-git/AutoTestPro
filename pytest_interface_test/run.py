@@ -9,6 +9,6 @@ import os
 import pytest
 #
 if __name__ == '__main__':
-    pytest.main(['-sv'])
-    # pytest.main(['-sv', '-q', '--alluredir', './result'])
-    # os.system('allure generate ./result -o ./report --clean')
+    # pytest.main(['-sv'])
+    pytest.main(['-sv', '-q', '--alluredir', './result'])
+    os.system('allure generate ./result -o ./report --clean')
