@@ -18,6 +18,7 @@
 # k_min_num = sorted(m)[:k]
 # print(k_min_num)
 import os
+import re
 import time
 from datetime import datetime
 
@@ -418,6 +419,11 @@ from datetime import datetime
 #     mainWindow.show()
 #     sys.exit(app.exec_())
 
+date_line = 'Ota_DoCalculate_MD5 : [73262284f0add6b945393d02b3de75bc]'
+match = re.search(r'\[(\w{32})]', date_line)
+if match:
+    print(match.group(0))
+else:
+    print("2")
 
-raw_num = int('4' + '2' +'4' + '7', 16)
-print(raw_num)
+
