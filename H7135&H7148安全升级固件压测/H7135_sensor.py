@@ -5,11 +5,9 @@
 # @File    :
 # @Description : OTA次数统计
 
-import os
 import time
 from datetime import datetime
 
-import openpyxl
 import serial
 
 from H7135.logs.get_log import GetLog
@@ -50,8 +48,7 @@ class H7135_OTA(object):
             print(f"发送sensor广播次数:{sensor_count}次")
 
             self.get_log.info(f"发送sensor广播次数:{sensor_count}次")
-            time.sleep(2)
-
+            time.sleep(10)
 
 
 if __name__ == '__main__':

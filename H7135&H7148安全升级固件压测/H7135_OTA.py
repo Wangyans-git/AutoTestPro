@@ -50,13 +50,13 @@ class H7135_OTA(object):
             print("*********打开日志串口成功*********")
         except Exception as e:
             print("*********日志串口异常:{}*********".format(e))
-        # try:
-        #     self.ser_Relay = serial.Serial(self.com1,
-        #                                    self.dbs1,
-        #                                    timeout=self.timeout)
-        #     print("*********打开继电器串口成功*********")
-        # except Exception as e:
-        #     print("*********继电器串口异常:{}*********".format(e))
+        try:
+            self.ser_Relay = serial.Serial(self.com1,
+                                           self.dbs1,
+                                           timeout=self.timeout)
+            print("*********打开继电器串口成功*********")
+        except Exception as e:
+            print("*********继电器串口异常:{}*********".format(e))
 
     # 读取处理数据
     def read_date(self):
@@ -74,7 +74,7 @@ class H7135_OTA(object):
         self.sheet1.cell(1, 4).value = "当前总成功率"
         row_num = 0
         sensor_recv_count = 0
-        # self.thread_sensor()  # 发送sensor广播
+        self.thread_sensor()  # 发送sensor广播
         with open(f'logs\\串口日志记录{time_log}', 'w') as file_handle:
             while row_num <= self.update_count:
                 try:
@@ -84,8 +84,8 @@ class H7135_OTA(object):
                     """
                     分布式网关处理
                     """
-                    if "RT/gateway/group/data/report/GD/" in date_line:  # 新固件断言
-                        # if "insert trigger sensor data is OK" in date_line:
+                    # if "RT/gateway/group/data/report/GD/" in date_line:  # 新固件断言
+                    if "insert trigger sensor data is OK" in date_line:
                         sensor_recv_count += 1
                         print(f"收到sensor信息次数:{sensor_recv_count}次")
                         self.get_log_recv.info(f"收到sensor信息次数:{sensor_recv_count}次")
@@ -110,7 +110,7 @@ class H7135_OTA(object):
                     elif match:
                         print(f"Ota_DoCalculate_MD5:{match.group(0)} ")
                         self.sheet.cell(row_num + 1, 7).value = match.group(0)
-                        if "[6a6e20b9bc89a2a6513ade9123b64ba6]" in date_line:
+                        if "[98702e10db4c9d049548549d8237e072]" in date_line:
                             print("结束")
                             self.success_count += 1
                             self.end_time = datetime.now()
@@ -136,7 +136,6 @@ class H7135_OTA(object):
             f"一共OTA{self.update_count}次，成功{self.success_count}次,成功率{self.success_count / self.update_count * 100:.2f}%")
 
     def sensor_check(self):
-        # sensor_send_count = 0
         time.sleep(5)
         while True:
             try:
@@ -153,7 +152,7 @@ class H7135_OTA(object):
                 pass
             print(f"发送sensor广播次数:{self.sensor_send_count}次")
             self.get_log_send.info(f"发送sensor广播次数:{self.sensor_send_count}次")
-            time.sleep(2)
+            time.sleep(10)
 
     def thread_sensor(self):
         thread_ = threading.Thread(target=self.sensor_check)
